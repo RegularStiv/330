@@ -6,7 +6,7 @@
 		#output{
 			font-size: 300%;
 		}
-		#myButton{
+		#my-button{
 			width: 200px;
 			height: 50pt;
 			font-size: 20px;
@@ -35,7 +35,7 @@
 				padding: 5px;
 				margin: 0%;
 			}
-			#myButton{
+			#my-button{
 				margin-top: 5px;
 			}
 		}
@@ -67,7 +67,7 @@
 				font-size: 3rem;
 				background-color: #23d160;
 			}
-			#myButton{
+			#my-button{
 				width: 300px;
 				height: 75pt;
 				font-size: 1.5rem;
