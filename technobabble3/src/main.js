@@ -27,14 +27,13 @@
 	function generateTechno(num){
 		for(let i = 0; i < num; i++)
 		{	
-			let string = loadRandom();
-			if(i === 0)
+			let string = "";
+			for (let i = 0; i < num; i++)
 			{
-				document.querySelector("#output").textContent = string;
+				string += `${loadRandom()} <br>` ;
 			}
-			else{
-				document.querySelector("#output" + (i + 1)).innerHTML = string;
-			}
+			
+			document.querySelector("#output").innerHTML = string;
 		}
 	}
 	function loadRandom() {
