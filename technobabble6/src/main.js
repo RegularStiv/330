@@ -32,16 +32,14 @@
 		return array[Math.floor(Math.random() * array.length)];
 	}
 	function generateTechno(num){
-		for(let i = 0; i < num; i++)
-		{	
-			let string = "";
-			for (let i = 0; i < num; i++)
-			{
-				string += `${loadRandom()} <br>` ;
-			}
-			
-			document.querySelector("#output").innerHTML = string;
+
+		let string = "";
+		for (let i = 0; i < num; i++)
+		{
+			string += `${loadRandom()} <br>` ;
 		}
+			
+		document.querySelector("#output").innerHTML = string;
 	}
 	function loadRandom() {
 		return `${randomElement(arrayOne)} ${randomElement(arrayTwo)} ${randomElement(arrayThree)}`;
