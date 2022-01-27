@@ -1,10 +1,16 @@
-import { loadTextXHR } from "./utils.js";
+import { loadTextXHR, randomElement } from "./utils.js";
 
 const appDataURL = "data/app-data.json";
 let output,textarea;
 
-const toggleBackground = e => e.target.style.background = e.target.style.background === "black" ? "white" : "black";
-
+//const toggleBackground = e => e.target.style.background = e.target.style.background === "black" ? "white" : "black";
+const replaceWithRhyme = e => {
+  const span = e.target;
+  const word = span.textContent.trim();
+  const ryhmes = RiTa.rhymes(word);
+  span.textContent = randomElement(ryhmes);
+  span.style.background = "yellow";
+};
 const createBlackoutText = () => { 
   console.log("createBlackoutText() called");
   // #5 - clear out #output, that's where the blackout text will go
@@ -29,8 +35,7 @@ const createBlackoutText = () => {
   // }
   const html = stringArray.map(w => `<span>${w}</span>`).join("");
   output.innerHTML = html;
-  document.querySelector("#output").onclick = toggleBackground;
-  
+  document.querySelector("#output").onclick = replaceWithRhyme;
 }	
 
 const setupUI = json => {
