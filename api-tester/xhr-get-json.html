@@ -22,8 +22,7 @@
 <script>
 	document.querySelector("#my-button").onclick = loadJsonXHR;
 	function loadJsonXHR(){
-		const url = "https://dog.ceo/api/breeds/image/random/1000000";
-		// https://dog.ceo/api/breed/hound/images
+		const url = "https://api.themoviedb.org/3/movie/550?api_key=e949389992586292b4a9367bb310847a";
 		const xhr = new XMLHttpRequest();
 		xhr.onload = (e) => {
 			console.log(`In onload - HTTP Status Code = ${e.target.status}`);
@@ -34,10 +33,10 @@
 				document.querySelector("#output").innerHTML = "<p>BAD JSON!</p>";
 				return;
 			}
-			const array = json.message;
+			const array = json.original_title;
 			string = "";
 			for (let a of array) {
-				string += `<img src = "${a}">`;
+				string += `${a}`;
 			}
 			document.querySelector("#output").innerHTML = string;
 			console.log("json = ",json);
