@@ -12,7 +12,7 @@ const showCharacter = swcObj =>{
   swCard.dataset.mass = swcObj.mass ?? "?";
   swCard.dataset.image = swcObj.image ?? "";
   swCard.dataset.homeworld = swcObj.homeworld ?? "unknown";
-
+ 
   swCard.dataset.apprentices = swcObj.apprentices ?? "unknown";
   
   document.querySelector(".card-list").appendChild(swCard);

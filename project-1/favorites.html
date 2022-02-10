@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src = "src/preload.js" type="module" ></script>
+  </head>
+  <body>
+    <proj-header></proj-header>
+    <nav class="navbar has-shadow is-info">
+        <!-- logo/brand -->
+        <div class="navbar-brand">
+            <a class = "navbar-item"  href="home.html"> 
+                <img src = "images/movie-logo-temp.png" alt="temparary movie logo" style = "max-height:70px;" class = "py-2 px-2">
+            </a>
+            <a class = "navbar-burger" id = "burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="nav-links">
+            <div class="navbar-end">
+                <a href="home.html" class="navbar-item">Home</a>
+                <a href="documentation.html" class="navbar-item">Documentation</a>
+                <a href="favorites.html" class="navbar-item">Favorites</a>
+                <a href="app.html" class="navbar-item">App</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class = "title is-size-2 has-text-centered">Favorites</h1>
+          <div class="columns is-centered">
+            <div class="column is-7 has-text-centered">
+              <h4 class = "is-size-2 subtitle">THIS IS PLACEHOLDER TEXT</h4>
+              <p class = "is-size-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque neque cum iusto sapiente esse obcaecati, architecto atque mollitia eius magnam, hic, voluptas inventore illo a numquam maiores voluptatem consectetur illum.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src = "src/preload.js"></script>
+    <sw-footer></sw-footer>
+</body>
+</html>

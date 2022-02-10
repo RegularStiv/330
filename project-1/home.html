@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Home</title>
+     <script src = "src/preload.js" type="module" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  </head>
+  <body>
+
+    <proj-header></proj-header>
+    <nav class="navbar has-shadow is-info">
+        <!-- logo/brand -->
+        <div class="navbar-brand">
+            <a class = "navbar-item" > 
+                <img src = "images/movie-logo-temp.png" alt="temparary movie logo" style = "max-height:70px;" class = "py-2 px-2">
+            </a>
+            <a class = "navbar-burger" id = "burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="nav-links">
+            <div class="navbar-end">
+                <a href="home.html" class="navbar-item">Home</a>
+                <a href="documentation.html" class="navbar-item">Documentation</a>
+                <a href="favorites.html" class="navbar-item">Favorites</a>
+                <a href="app.html" class="navbar-item">App</a>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+          <h1 class = "title is-size-2 has-text-centered">Project - 1: Movie Application</h1>
+        <div class="columns is-centered">
+          <div class="column is-3">
+              
+            <img src = "images/large-movie-camera.png" alt="movie camera">
+            
+          </div>
+          <div class="column is-7 has-text-centered">
+            <h4 class = "is-size-2 subtitle">What This Site Will Do</h4>
+            <p class = "is-size-3 ">This Website will be able to let people find movies and tv shows based on different attributes.  
+                The application will also be able to find specific movies by searching and give suggestions to different movies and tv shows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <sw-footer></sw-footer>
+   
+  </body>
+</html>
