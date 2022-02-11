@@ -46,24 +46,30 @@
 //   });
 // }
 function loadJsonFetch(){
-  fetch("data/pet-names.json")
-  .then(response => {
-	  if (response.ok){
-		  return response.json();
-	  }
-	  return respons.text().then(text => {
-		  throw text;
-	  });
-  })
-  .then(json =>{
-	const names = json;
-	let string = "asdasda";
-	string = names[0];
-	  document.querySelector('#output').textContent = string;
-  }).catch(error => {
-	  console.log(error);
-  });
-}
+	const fetchPromise = async () => {
+		let response = await fetch("data/pet-names.json");
+
+		if(!response.ok){
+			throw new Error(`HTTP error! status ${response.status}`);
+		}
+	
+
+	let json = await response.json();
+
+	const keys = Object.keys(json);
+	let string = "";
+	for(let k of keys){
+			//	console.log(json[k]);
+				const obj = json[k];
+				string += `<h3>${obj.title = obj.title ? obj.title : "No title Found" }</h3>`;
+				string += `<ol>${obj["namelist"].map(w => `<li>${w}</li>`).join("")}</ol>`;
+	}
+	  document.querySelector('#output').innerHTML = string;
+		};
+		fetchPromise().catch(e => {
+			console.log(`in catch with e = ${e}`);
+		});
+	};
 </script>
 </body>
 </html>
