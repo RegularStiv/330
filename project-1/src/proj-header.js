@@ -15,6 +15,7 @@ class ProjHeader extends HTMLElement{
         this.attachShadow({mode:"open"});
 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.header = this.shadowRoot.querySelector("header");
 
     }
     connectedCallback(){
@@ -22,7 +23,7 @@ class ProjHeader extends HTMLElement{
     }
 
     render(){
-        header.innerHTML = "Project 1";
+        this.header.innerHTML = "Project 1";
     }
 }
 customElements.define('proj-header',ProjHeader);

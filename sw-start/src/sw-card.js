@@ -10,7 +10,7 @@ div{
     overflow: scroll;
     font-size: .7rem;
     position: relative;
-  }
+  } 
   
 h2{
     font-size: 1.1rem;

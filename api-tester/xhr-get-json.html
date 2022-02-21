@@ -24,7 +24,7 @@
 	function loadJsonXHR(){
 		const url = "https://api.themoviedb.org/3/movie/550?api_key=e949389992586292b4a9367bb310847a";
 		const xhr = new XMLHttpRequest();
-		xhr.onload = (e) => {
+		xhr.onload = (e) => { 
 			console.log(`In onload - HTTP Status Code = ${e.target.status}`);
 			let json;
 			try{
@@ -34,11 +34,11 @@
 				return;
 			}
 			const array = json.original_title;
-			string = "";
+			let string = "";
 			for (let a of array) {
 				string += `${a}`;
 			}
-			document.querySelector("#output").innerHTML = string;
+			console.log(string);
 			console.log("json = ",json);
 		}
 		xhr.onerror = e => console.log(`In onerror - HTTP Status Code = ${e.target.status}`);
