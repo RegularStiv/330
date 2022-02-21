@@ -2,7 +2,8 @@
 import "./proj-footer.js";
 import "./proj-header.js";
 import { loadFile } from "./utils.js";
-let movieJSON = {};
+let classSpells = [];
+let levelSpells = [];
 let url = "https://www.dnd5eapi.co/api/spells?level=0";
 // mobile menu
 const burgerIcon = document.querySelector('#burger');
@@ -47,10 +48,9 @@ function filterSpells() {
     console.log(filterSpell);
     console.log(filterClass);
     url = "https://www.dnd5eapi.co/api/classes/" + filterClass + "/spells";
-    let classSpells = loadFile(url,console.log);
+    classSpells = loadFile(url, classSpellsConvert);
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
-    let levelSpells = loadFile(url,console.log);
-    let spellArray = [];
+    levelSpells = loadFile(url, levelSpellsConvert);
     classSpells.forEach(cSpell => {
         levelSpells.forEach(lSpell => {
             if(cSpell.name == lSpell.name){
@@ -63,6 +63,12 @@ function filterSpells() {
     }
     console.log("done");
 
+}
+const classSpellsConvert = json =>{
+    classSpells = json;
+}
+const levelSpellsConvert = json =>{
+    levelSpells = json;
 }
 const init = () => {
     filterSpells();
