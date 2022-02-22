@@ -6,6 +6,10 @@ let classSpells = [];
 let levelSpells = [];
 let spellArray = [];
 let url = "https://www.dnd5eapi.co/api/spells?level=0";
+let prefix = "sar7743-";
+const searchBarKey = prefix + "searchKey";
+const classKey = prefix + "classKey";
+const spellKey = prefix + "spellKey";
 // mobile menu
 const burgerIcon = document.querySelector('#burger');
 const navbarMenu = document.querySelector('#nav-links');
@@ -35,8 +39,10 @@ function filterSpells() {
     spellArray = [];
     const filterClass = document.querySelector("#class-select").value;
     const filterSpell = document.querySelector("#level-select").value;
-    console.log(filterSpell);
-    console.log(filterClass);
+    let levelIndex = parseInt(document.querySelector("#level-select").options[document.querySelector("#level-select").selectedIndex].value);
+    let classIndex = (document.querySelector("#class-select").options[document.querySelector("#class-select").selectedIndex].value);
+    localStorage.setItem(spellKey,levelIndex);
+    localStorage.setItem(classKey,classIndex);
     url = "https://www.dnd5eapi.co/api/classes/" + filterClass + "/spells";
     loadFile(url, getClassSpells);
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
@@ -72,6 +78,7 @@ const getLevelSpells = json =>{
             loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
         }
     }
+    
 }
 function filterSpellsButton(){
     document.querySelector("#img").innerHTML = " ";
@@ -82,6 +89,7 @@ function filterSpellsButton(){
     let search = document.querySelector("#search-box").value;
     url += search;
     loadFile(url, loopAllSpells);
+    localStorage.setItem(searchBarKey,search);
 }
 const loopAllSpells = json => {
     for (const iterator of json.results) {
@@ -90,7 +98,22 @@ const loopAllSpells = json => {
 }
 function init(){
     filterSpells();
+    document.querySelector("#search-box").value = localStorage.getItem(searchBarKey);
+    if(localStorage.getItem(classKey) == null){
+        localStorage.setItem(classKey, 0);
+    }
+    else{
+        document.querySelector("#class-select").value = localStorage.getItem(classKey);
+    }
+    if(localStorage.getItem(spellKey) == null){
+        localStorage.setItem(spellKey, 0);
+    }
+    else{
+        document.querySelector("#level-select").value = localStorage.getItem(spellKey);
+    }
+    
 }
+
 const showSpell = spellObj =>{
     console.log(spellObj);
     const spellCard = document.createElement('spell-card');
