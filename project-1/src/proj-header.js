@@ -6,7 +6,7 @@ template.innerHTML = `
 <header>
     Project 1
 </header>
-`;
+`; 
 
 class ProjHeader extends HTMLElement{
     constructor(){

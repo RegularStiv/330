@@ -7,9 +7,10 @@ let levelSpells = [];
 let spellArray = [];
 let url = "https://www.dnd5eapi.co/api/spells?level=0";
 let prefix = "sar7743-";
-const searchBarKey = prefix + "searchKey";
-const classKey = prefix + "classKey";
-const spellKey = prefix + "spellKey";
+const searchBarKey = prefix + "search-key";
+const classKey = prefix + "class-key";
+const spellKey = prefix + "spell-key";
+const favKey = prefix + "fav-key"
 // mobile menu
 const burgerIcon = document.querySelector('#burger');
 const navbarMenu = document.querySelector('#nav-links');
@@ -151,7 +152,22 @@ const showSpell = spellObj =>{
     }
     spellCard.dataset.desc = spellObj.desc ?? "No name Found";
     spellCard.dataset.range = spellObj.range ?? "No name Found";
+    spellCard.dataset.url = spellObj.url ?? "NAN";
     document.querySelector("#img").appendChild(spellCard);
+
+    spellCard.buttonCallBack = addToFavorites;
   };
+
+  function addToFavorites(url){
+    if(JSON.parse(localStorage.getItem(favKey)) != null){
+        let urlArray = JSON.parse(localStorage.getItem(favKey));
+        urlArray.push(url);
+        localStorage.setItem(favKey,JSON.stringify(urlArray));
+    }
+    else{
+        let urlArray = [url];
+        localStorage.setItem(favKey, JSON.stringify(urlArray));
+    }
+  }
 
 window.onload = init;

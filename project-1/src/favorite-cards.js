@@ -1,3 +1,4 @@
+const favKey = "sar7743-fav-key";
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
@@ -45,50 +46,58 @@ img{
 </style>
 <div>
     <h2 id = "spell-name">title</h2>
-    <button id = "fav-button">fav</button>
+    <button id = "remove-button">remove</button>
     <p id = "spell-level">Level Learned: </p>
     <p id = "spell-damage">Damage: </p>
     <p id = "spell-range">Range:</p>
     <p id = "spell-desc">Desc:</p>
     <p id = "spell-higher-level">HL:</p>
-    <p id = "url"></p>
+
 </div>
 `;
 
-class SpellCard extends HTMLElement{
+class FavSpellCard extends HTMLElement{
     constructor(){
         super();
 
         this.attachShadow({mode:"open"});
 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.button = this.shadowRoot.querySelector("#fav-button");
+        this.button = this.shadowRoot.querySelector("#remove-button");
         this.h2 = this.shadowRoot.querySelector("h2");
         this.p1 = this.shadowRoot.querySelector("#spell-level");
         this.p2 = this.shadowRoot.querySelector("#spell-damage");
         this.p3 = this.shadowRoot.querySelector("#spell-range");
         this.p4 = this.shadowRoot.querySelector("#spell-desc");
-        this.p5 = this.shadowRoot.querySelector("#spell-higher-level");
-        //this.url = this.shadowRoot.querySelector("#url");
+        this.p5 = this.shadowRoot.querySelector("#spell-higher-level");;
 
     }
     connectedCallback(){
         this.button.onclick = () =>{
-            this.buttonCallBack(this.getAttribute('data-url'));
+            if (JSON.parse(localStorage.getItem(favKey)) != null){
+                let urlArray = JSON.parse(localStorage.getItem(favKey));
+                let urlRemoved = this.getAttribute('data-url');
+                for (let i = 0; i < urlArray.length; i++) {
+                    if(urlRemoved == urlArray[i]){
+                        urlArray.splice(i,1);
+                    }
+                }
+                localStorage.setItem(favKey,JSON.stringify(urlArray));
+            }
+            this.remove();
         }
         this.render();
     }
     disconnectedCallback(){
     }
     static get observedAttributes(){
-        return ["data-name","data-desc","data-damage","data-higher-level", "data-range", "data-level","data-url"];
+        return ["data-name","data-desc","data-damage","data-higher-level", "data-range", "data-level", "data-url"];
     }
     attributeChangedCallback(attributeName, oldVal, newVal){
         console.log(attributeName, oldVal, newVal);
         this.render();
     }
     render(){
-        //const url = this.getAttribute('data-url') ? this.getAttribute('data-url') : "<i>name not found</i>";
         const name = this.getAttribute('data-name') ? this.getAttribute('data-name') : "<i>name not found</i>";
         const desc = this.getAttribute('data-desc') ? this.getAttribute('data-desc') : "desc not found";
         const damage = this.getAttribute('data-damage') ? this.getAttribute('data-damage') : "damage not found";
@@ -96,7 +105,6 @@ class SpellCard extends HTMLElement{
         const range = this.getAttribute('data-range') ? this.getAttribute('data-range') : "range not found";
         const level = this.getAttribute('data-level') ? this.getAttribute('data-level') : "level not found";
 
-        //this.url.innerHTML = url;
         this.h2.innerHTML = name;
         this.p1.innerHTML = level;
         this.p2.innerHTML = damage;
@@ -106,4 +114,4 @@ class SpellCard extends HTMLElement{
     }
 
 }
-customElements.define('spell-card',SpellCard);
+customElements.define('fav-spell-card',FavSpellCard);
