@@ -4,6 +4,7 @@ import "./proj-header.js";
 import { loadFile } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
+let spellArray = [];
 let url = "https://www.dnd5eapi.co/api/spells?level=0";
 // mobile menu
 const burgerIcon = document.querySelector('#burger');
@@ -24,33 +25,25 @@ for (const n of navbarItems) {
     }
 }
 //#endregion
-
-// const selectChange = e => {
-//     const dndID = e.target.value;
-//     if(movID == 0) return; // if it's the first <option>, return
-//     const movObj = movieJSON[movID]; // movie object
-//     if(movObj) showCharacter(movObj);
-//   };
-
-const jsonLoaded = json => {
-    
-    for (const iterator of json.results) {
-        console.log(iterator.level);
-        if(iterator.level == `${filterSpell}`){
-            loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
-        }
-        
-    }
-}
+document.querySelector("#class-select").onchange = filterSpells;
+document.querySelector("#level-select").onchange = filterSpells;
+document.querySelector("#search-button").onclick = filterSpellsButton;
 function filterSpells() {
+    document.querySelector("#img").innerHTML = " ";
+    classSpells = [];
+    levelSpells = [];
+    spellArray = [];
     const filterClass = document.querySelector("#class-select").value;
     const filterSpell = document.querySelector("#level-select").value;
     console.log(filterSpell);
     console.log(filterClass);
     url = "https://www.dnd5eapi.co/api/classes/" + filterClass + "/spells";
-    classSpells = loadFile(url, classSpellsConvert);
+    loadFile(url, getClassSpells);
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
-    levelSpells = loadFile(url, levelSpellsConvert);
+    loadFile(url, getLevelSpells);
+}
+const getClassSpells = json =>{
+    classSpells = json.results;
     classSpells.forEach(cSpell => {
         levelSpells.forEach(lSpell => {
             if(cSpell.name == lSpell.name){
@@ -58,30 +51,82 @@ function filterSpells() {
             }
         });
     });
-    for (const iterator of spellArray) {
+    if(spellArray.length != 0){
+            for (const iterator of spellArray) {
+            loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
+        }
+    }
+}
+
+const getLevelSpells = json =>{
+    levelSpells = json.results;
+    classSpells.forEach(cSpell => {
+        levelSpells.forEach(lSpell => {
+            if(cSpell.name == lSpell.name){
+                spellArray.push(cSpell);
+            }
+        });
+    });
+    if(spellArray.length != 0){
+            for (const iterator of spellArray) {
+            loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
+        }
+    }
+}
+function filterSpellsButton(){
+    document.querySelector("#img").innerHTML = " ";
+    classSpells = [];
+    levelSpells = [];
+    spellArray = [];
+    url = "https://www.dnd5eapi.co/api/spells/?name=";
+    let search = document.querySelector("#search-box").value;
+    url += search;
+    loadFile(url, loopAllSpells);
+}
+const loopAllSpells = json => {
+    for (const iterator of json.results) {
         loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
     }
-    console.log("done");
-
 }
-const classSpellsConvert = json =>{
-    classSpells = json;
-}
-const levelSpellsConvert = json =>{
-    levelSpells = json;
-}
-const init = () => {
+function init(){
     filterSpells();
 }
-
 const showSpell = spellObj =>{
     console.log(spellObj);
     const spellCard = document.createElement('spell-card');
     spellCard.dataset.name = spellObj.name ?? "No name Found";
     spellCard.dataset.level = spellObj.level ?? "No name Found";
-    //spellCard.dataset.damage = spellObj.damage.damage_at_slot_level[`${spellObj.level}`] ?? "No name Found";
+    if(spellObj.damage){
+        if(spellObj.damage.damage_at_slot_level){
+            spellCard.dataset.damage = "Damage Dealt per spell slot " + spellObj.damage.damage_at_slot_level[`${spellObj.level}`] ?? "No name Found";
+        }
+        else if(spellObj.damage.damage_at_character_level){
+            let array = JSON.stringify(spellObj.damage.damage_at_character_level).split(",");
+            let string = "";
+            array.forEach(element => {
+                element += '\n';
+                string += element;
+            });
+            spellCard.dataset.damage = "Damage dealt per level " + string ?? "No name Found";
+        }
+        if(spellObj.damage.damage_type.name){
+            spellCard.dataset.higherLevel =  spellObj.damage.damage_type.name
+        }
+    }
+    else if(spellObj.heal_at_slot_level){
+        let array = JSON.stringify(spellObj.heal_at_slot_level).split(",");
+        let string = "";
+        array.forEach(element => {
+            element += '\n';
+            string += element;
+        });
+        spellCard.dataset.damage = "Healing: " + string ;
+    }
+    else {
+        spellCard.dataset.damage = "no damage applies";
+        spellCard.dataset.higherLevel = "no damage type";
+    }
     spellCard.dataset.desc = spellObj.desc ?? "No name Found";
-    //spellCard.dataset.higherLevel = spellObj.damage.damage_type.name ?? "No name Found";
     spellCard.dataset.range = spellObj.range ?? "No name Found";
     document.querySelector("#img").appendChild(spellCard);
   };

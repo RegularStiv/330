@@ -19,13 +19,22 @@ h2{
     line-height: 1.2;
     margin-top: 0;
   }
-  button{
+  #x-button{
       border-radius : 1px;
       padding:2px;
       position:absolute;
       top:1px;
       right:1px;
       opacity:.2;
+  }
+  #fav-button{
+    border-radius : 1px;
+    padding:2px;
+    position:absolute;
+    top:1px;
+    left:1px;
+    opacity:.2;
+}
   }
   button:hover{
       opacity: 1;
@@ -36,7 +45,8 @@ img{
 </style>
 <div>
     <h2 id = "spell-name">title</h2>
-    <button>X</button>
+    <button id = "x-button">X</button>
+    <button id = "fav-button">fav</button>
     <p id = "spell-level">Level Learned: </p>
     <p id = "spell-damage">Damage: </p>
     <p id = "spell-range">Range:</p>
@@ -53,7 +63,8 @@ class SpellCard extends HTMLElement{
         this.attachShadow({mode:"open"});
 
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.button = this.shadowRoot.querySelector("button");
+        this.button1 = this.shadowRoot.querySelector("#x-button");
+        this.button2 = this.shadowRoot.querySelector("#fav-button");
         this.h2 = this.shadowRoot.querySelector("h2");
         this.p1 = this.shadowRoot.querySelector("#spell-level");
         this.p2 = this.shadowRoot.querySelector("#spell-damage");
@@ -63,11 +74,11 @@ class SpellCard extends HTMLElement{
 
     }
     connectedCallback(){
-        this.button.onclick = () => this.remove();
+        this.button1.onclick = () => this.remove();
         this.render();
     }
     disconnectedCallback(){
-        this.button.onclick = null;
+        this.button1.onclick = null;
     }
     static get observedAttributes(){
         return ["data-name","data-desc","data-damage","data-higher-level", "data-range", "data-level"];
