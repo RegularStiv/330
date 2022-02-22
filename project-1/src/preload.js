@@ -1,7 +1,7 @@
 
 import "./proj-footer.js";
 import "./proj-header.js";
-import { loadFile } from "./utils.js";
+import { loadFile, setNavActive } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
 let spellArray = [];
@@ -19,16 +19,7 @@ burgerIcon.addEventListener("click", () => {
     navbarMenu.classList.toggle('is-active');
 });
 
-//#region active where person is in the site
-let pathName = window.location.pathname;
-let page = pathName.split('/').pop();
-const navbarItems = document.querySelectorAll(".navbar-item");
-for (const n of navbarItems) {
-    let nPageName = n.href.split("/").pop();
-    if(nPageName == page){
-        n.classList.toggle('is-active');
-    }
-}
+
 //#endregion
 document.querySelector("#class-select").onchange = filterSpells;
 document.querySelector("#level-select").onchange = filterSpells;
@@ -112,7 +103,7 @@ function init(){
     else{
         document.querySelector("#level-select").value = localStorage.getItem(spellKey);
     }
-    
+    setNavActive();
 }
 
 const showSpell = spellObj =>{

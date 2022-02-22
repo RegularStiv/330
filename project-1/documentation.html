@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movie Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src = "src/preload.js" type="module" ></script>
+    <script src = "src/not-app-main.js" type="module" ></script>
   </head>
   <body>
 
     <nav class="navbar has-shadow is-info">
         <div class="navbar-brand">
             <a class = "navbar-item"  href="home.html"> 
-                <img src = "images/movie-logo-temp.png" alt="temparary movie logo" style = "max-height:70px;" class = "py-2 px-2">
+                <img src = "images/dragon_ampersand.svg" alt="temparary movie logo" style = "max-height:70px;" class = "py-2 px-2">
             </a>
             <a class = "navbar-burger" id = "burger">
                 <span></span>
@@ -37,18 +37,24 @@
           <div class="columns ">
             <div class="column is-3 has-text-centered">
                 <h2 class = "subtitle">API info</h2>
-                <p>API uses JSON only</p>
-                <p>Documentation link:<br>https://developers.themoviedb.org/3/getting-started/introduction</p>
+                <p>API uses JSONs only</p>
+                <p>Documentation link:<br><a href = "http://www.dnd5eapi.co/docs/">http://www.dnd5eapi.co/docs/</a></p>
             </div> 
             <div class="column is-3 has-text-centered">
                 <h2 class = "subtitle">Major Features</h2>
-                <p>API can sort through movies and tv shows based on search and type.</p>
-                <p>Discover allows for filtering through movies and tv shows based on different parameters.</p>
+                <p>The API can sort through various spells based on level 
+                    and spells from specific classes.  It cannot however 
+                    filter both at the same time so I manually sorted 
+                    through both using dropdowns.  The search bar is not 
+                    filtered by the drop downs because you are searching 
+                    for a specific spell.  You are able to favorite spells 
+                    now however for the final project I want to be able to 
+                    store spells based on a specifc character that you make.
+                </p>
             </div>
             <div class="column is-6 has-text-centered">
                 <img src ="images/unnamed.jpg" alt="drawing">
             </div>
-            <movie-card data-title = "eggs"></movie-card>
           </div>
         </div>
       </section>

@@ -19,23 +19,6 @@ h2{
     line-height: 1.2;
     margin-top: 0;
   } 
-  #x-button{
-      border-radius : 1px;
-      padding:2px;
-      position:absolute;
-      top:1px;
-      right:1px;
-      opacity:.2;
-  }
-  #fav-button{
-    border-radius : 1px;
-    padding:2px;
-    position:absolute;
-    top:1px;
-    left:1px;
-    opacity:.2;
-}
-  }
   button:hover{
       opacity: 1;
   }
@@ -75,6 +58,7 @@ class SpellCard extends HTMLElement{
     connectedCallback(){
         this.button.onclick = () =>{
             this.buttonCallBack(this.getAttribute('data-url'));
+            this.button.innerHTML = "Favorited";
         }
         this.render();
     }

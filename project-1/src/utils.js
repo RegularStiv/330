@@ -5,5 +5,15 @@ const loadFile = (url,callback) => {
     }
     fetchPromise();
   };
-  
-  export {loadFile};
+function setNavActive(){
+let pathName = window.location.pathname;
+let page = pathName.split('/').pop();
+const navbarItems = document.querySelectorAll(".navbar-item");
+for (const n of navbarItems) {
+    let nPageName = n.href.split("/").pop();
+    if(nPageName == page){
+        n.classList.toggle('is-active');
+    }
+}
+}
+  export {loadFile,setNavActive};

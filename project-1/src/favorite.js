@@ -1,4 +1,4 @@
-import { loadFile } from "./utils.js";
+import { loadFile, setNavActive } from "./utils.js";
 import "./favorite-cards.js";
 
 const favKey = "sar7743-fav-key";
@@ -54,5 +54,6 @@ const showSpell = spellObj =>{
             loadURL(iterator);
         }
       }
+      setNavActive();
   }
   window.onload = init;
