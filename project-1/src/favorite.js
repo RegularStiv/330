@@ -1,10 +1,15 @@
+//import statements
 import { loadFile, setNavActive } from "./utils.js";
 import "./favorite-cards.js";
-
+//key to all favorited spells
 const favKey = "sar7743-fav-key";
+
 const showSpell = spellObj =>{
+    //logs the json
     console.log(spellObj);
+    //creates a spell card
     const spellCard = document.createElement('fav-spell-card');
+    //sets the name and level 
     spellCard.dataset.name = spellObj.name ?? "No name Found";
     spellCard.dataset.level = spellObj.level ?? "No name Found";
     if(spellObj.damage){
