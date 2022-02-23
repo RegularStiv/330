@@ -112,11 +112,11 @@ class FavSpellCard extends HTMLElement{
 
         //sets each html element with the observed attributes
         this.shadowRoot.querySelector("h2").innerHTML = name;
-        this.p1 = this.shadowRoot.querySelector("#spell-level").innerHTML = "Level learned: " + level;
-        this.p2 = this.shadowRoot.querySelector("#spell-damage").innerHTML =  damage;
-        this.p3 = this.shadowRoot.querySelector("#spell-range").innerHTML = "Range:" + range;
-        this.p4 = this.shadowRoot.querySelector("#spell-desc").innerHTML = desc;
-        this.p5 = this.shadowRoot.querySelector("#spell-higher-level").innerHTML = "Type of Damage: " + higherLevel;
+        this.shadowRoot.querySelector("#spell-level").innerHTML = "Level learned: " + level;
+        this.shadowRoot.querySelector("#spell-damage").innerHTML =  damage;
+        this.shadowRoot.querySelector("#spell-range").innerHTML = "Range:" + range;
+        this.shadowRoot.querySelector("#spell-desc").innerHTML = desc;
+        this.shadowRoot.querySelector("#spell-higher-level").innerHTML = "Type of Damage: " + higherLevel;
     }
 
 }

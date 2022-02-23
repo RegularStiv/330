@@ -1,6 +1,6 @@
 
-import "./proj-footer.js";
-import { loadFile, setNavActive } from "./utils.js";
+import "./spell-card.js";
+import { loadFile, setDropDown, setNavActive } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
 let spellArray = [];
@@ -11,12 +11,6 @@ const classKey = prefix + "class-key";
 const spellKey = prefix + "spell-key";
 const favKey = prefix + "fav-key"
 // mobile menu
-const burgerIcon = document.querySelector('#burger');
-const navbarMenu = document.querySelector('#nav-links');
-
-burgerIcon.addEventListener("click", () => {
-    navbarMenu.classList.toggle('is-active');
-});
 
 
 //#endregion
@@ -103,6 +97,7 @@ function init(){
         document.querySelector("#level-select").value = localStorage.getItem(spellKey);
     }
     setNavActive();
+    setDropDown();
 }
 
 const showSpell = spellObj =>{

@@ -1,3 +1,4 @@
+//sets up the template of the card (html and css)
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
@@ -37,36 +38,28 @@ img{
     <p id = "url"></p>
 </div>
 `;
-
+//custom card class
 class SpellCard extends HTMLElement{
     constructor(){
         super();
-
+        //sets up shadowroot
         this.attachShadow({mode:"open"});
-
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.button = this.shadowRoot.querySelector("#fav-button");
-        this.h2 = this.shadowRoot.querySelector("h2");
-        this.p1 = this.shadowRoot.querySelector("#spell-level");
-        this.p2 = this.shadowRoot.querySelector("#spell-damage");
-        this.p3 = this.shadowRoot.querySelector("#spell-range");
-        this.p4 = this.shadowRoot.querySelector("#spell-desc");
-        this.p5 = this.shadowRoot.querySelector("#spell-higher-level");
-        //this.url = this.shadowRoot.querySelector("#url");
-
     }
     connectedCallback(){
+        //sets up the button onclick
+        this.button = this.shadowRoot.querySelector("#fav-button");
         this.button.onclick = () =>{
             this.buttonCallBack(this.getAttribute('data-url'));
             this.button.innerHTML = "Favorited";
         }
         this.render();
     }
-    disconnectedCallback(){
-    }
+    //stores the attributes that are being used
     static get observedAttributes(){
         return ["data-name","data-desc","data-damage","data-higher-level", "data-range", "data-level","data-url"];
     }
+    //logs the changes in values of observed attributes
     attributeChangedCallback(attributeName, oldVal, newVal){
         console.log(attributeName, oldVal, newVal);
         this.render();
@@ -81,13 +74,14 @@ class SpellCard extends HTMLElement{
         const level = this.getAttribute('data-level') ? this.getAttribute('data-level') : "level not found";
 
         //this.url.innerHTML = url;
-        this.h2.innerHTML = name;
-        this.p1.innerHTML = level;
-        this.p2.innerHTML = damage;
-        this.p3.innerHTML = range;
-        this.p4.innerHTML = desc;
-        this.p5.innerHTML = higherLevel;
+        this.shadowRoot.querySelector("h2").innerHTML = name;
+        this.shadowRoot.querySelector("#spell-level").innerHTML = level;
+        this.shadowRoot.querySelector("#spell-damage").innerHTML = damage;
+        this.shadowRoot.querySelector("#spell-range").innerHTML = range;
+        this.shadowRoot.querySelector("#spell-desc").innerHTML = desc;
+        this.shadowRoot.querySelector("#spell-higher-level").innerHTML = higherLevel;
     }
 
 }
+//defines the element
 customElements.define('spell-card',SpellCard);

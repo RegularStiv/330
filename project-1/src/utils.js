@@ -16,4 +16,12 @@ for (const n of navbarItems) {
     }
 }
 }
-  export {loadFile,setNavActive};
+function setDropDown(){
+  const burgerIcon = document.querySelector('#burger');
+  const navbarMenu = document.querySelector('#nav-links');
+
+burgerIcon.addEventListener("click", () => {
+    navbarMenu.classList.toggle('is-active');
+});
+}
+  export {loadFile,setNavActive, setDropDown};
