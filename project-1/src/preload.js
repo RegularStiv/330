@@ -1,6 +1,5 @@
 
 import "./proj-footer.js";
-import "./proj-header.js";
 import { loadFile, setNavActive } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];

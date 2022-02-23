@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movie Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src = "src/not-app-main.js" type="module" ></script>
-  </head>
-  <body>
+    <script src="src/not-app-main.js" type="module"></script>
+</head>
+
+<body>
 
     <nav class="navbar has-shadow is-info">
         <div class="navbar-brand">
-            <a class = "navbar-item"  href="home.html"> 
-                <img src = "images/dragon_ampersand.svg" alt="temparary movie logo" style = "max-height:70px;" class = "py-2 px-2">
+            <a class="navbar-item" href="home.html">
+                <img src="images/dragon_ampersand.svg" alt="temparary movie logo" style="max-height:70px;"
+                    class="py-2 px-2">
             </a>
-            <a class = "navbar-burger" id = "burger">
+            <a class="navbar-burger" id="burger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -30,33 +33,58 @@
             </div>
         </div>
     </nav>
-    <proj-header></proj-header>
     <section class="section">
         <div class="container">
-            <h1 class = "title is-size-2 has-text-centered">Documentation</h1>
-          <div class="columns ">
-            <div class="column is-3 has-text-centered">
-                <h2 class = "subtitle">API info</h2>
-                <p>API uses JSONs only</p>
-                <p>Documentation link:<br><a href = "http://www.dnd5eapi.co/docs/">http://www.dnd5eapi.co/docs/</a></p>
-            </div> 
-            <div class="column is-3 has-text-centered">
-                <h2 class = "subtitle">Major Features</h2>
-                <p>The API can sort through various spells based on level 
-                    and spells from specific classes.  It cannot however 
-                    filter both at the same time so I manually sorted 
-                    through both using dropdowns.  The search bar is not 
-                    filtered by the drop downs because you are searching 
-                    for a specific spell.  You are able to favorite spells 
-                    now however for the final project I want to be able to 
-                    store spells based on a specifc character that you make.
-                </p>
+            <h1 class="title is-size-2 has-text-centered">Documentation</h1>
+            <div class="columns ">
+                <div class="column is-4 has-text-centered">
+                    <h2 class="subtitle">API info</h2>
+                    <p>API uses JSONs only</p>
+                    <p>API Home: <a href="https://www.dnd5eapi.co/">https://www.dnd5eapi.co/</a></p>
+                    <p>Documentation link:<br><a href="http://www.dnd5eapi.co/docs/">http://www.dnd5eapi.co/docs/</a>
+                    </p>
+
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <h2 class="subtitle">Major Features</h2>
+                    <p>The API can sort through various spells based on level
+                        and spells from specific classes. It cannot however
+                        filter both at the same time so I manually sorted
+                        through both using dropdowns. The search bar is not
+                        filtered by the drop downs because you are searching
+                        for a specific spell. You are able to favorite spells
+                        now however for the final project I want to be able to
+                        store spells based on a specifc character that you make.
+                    </p>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <h2 class=subtitle>Proposal</h2>
+                    <img src="images/unnamed.jpg" alt="drawing">
+                </div>
+
             </div>
-            <div class="column is-6 has-text-centered">
-                <img src ="images/unnamed.jpg" alt="drawing">
+            <div class="columns ">
+                <div class="column is-4 has-text-centered">
+                    <h2 class="subtitle">Sources</h2>
+                    <ul>
+                        <li><a href="https://bulma.io/documentation/">Bulma</a></li>
+                        <li><a href="https://freesvg.org/dragon-ampersand">D&D ampersand</a></li>
+                        <li><a href="kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm">localstorage
+                                array storage and parsing</a></li>
+                        <li><a href="https://pixabay.com/illustrations/d20-dice-dungeons-dragons-2699387/">D20 image</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <h2 class="subtitle">TO DO:</h2>
+                    <p>CSS</p>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <h2 class="subtitle">Grading</h2>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 </body>
+
 </html>
