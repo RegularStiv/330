@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
-    <script src = "src/main.js"></script>
+    <script src = "src/main.js" type ="module"></script>
     <title>Stephen Rumpp's Portfolio</title>
 </head>
 <body>
 <nav class="navbar has-shadow is-hidden-desktop is-grey">
-    
+  <a class="navbar-burger" id="burger">
+    <span><a href="home.html" class="navbar-item">Home</a></span>
+    <span><a href="documentation.html" class="navbar-item">Documentation</a></span>
+    <span><a href="favorites.html" class="navbar-item">Favorites</a></span> 
+    <span><a href="app.html" class="navbar-item">App</a></span> 
+  </a>
 </nav>
 
 <section class="main-content columns is-fullheight">
-  
-  <aside class="column is-3 is-narrow-mobile is-fullheight section is-hidden-touch has-background-dark">
+  <aside id = "aside-nav" class="column is-3 is-narrow-mobile section is-hidden-touch has-background-dark">
     <p class="menu-label is-hidden-touch has-text-white">Navigation</p>
     <ul class="menu-list ">
       <li>
@@ -29,12 +33,12 @@
         <span class="icon"><i class="fa fa-info"></i></span> Resume
       </a>
       </li>
-      <li>
-        <a href="#" class="has-text-white">
+      <li >
+        <a href="#" class="has-text-white" id = "projects" >
           <span class="icon"><i class="fa fa-table"></i></span> projects
         </a>
 
-        <ul>
+        <ul id = "project-children">
           <li>
             <a href="#" class ="has-text-white">
               <span class="icon is-small"><i class="fa fa-link"></i></span> Changeling
