@@ -12,7 +12,8 @@ a.has-text-white:hover {
   position:sticky;
   top:0;
 }
-footer{
+.columns.is-multiline.is-centered{
+  padding-top:20px;
 }
 section{
   margin:0px;
