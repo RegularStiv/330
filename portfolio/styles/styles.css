@@ -3,4 +3,24 @@ a.has-text-white:hover {
 }
 #aside-nav{
   position: sticky;
+  top:0;
+  display:block;
+  height:100vh;
+  margin-bottom: 0px;;
+}
+#navbar{
+  position:sticky;
+  top:0;
+}
+footer{
+}
+section{
+  margin:0px;
+}
+body{
+  padding:25px;
+  margin:0px;
+}
+html{
+  margin:0px;
 }

@@ -9,16 +9,45 @@
     <script src = "src/main.js" type ="module"></script>
     <title>Stephen Rumpp's Portfolio</title>
 </head>
-<body>
-<nav class="navbar has-shadow is-hidden-desktop is-grey">
-  <a class="navbar-burger" id="burger">
-    <span><a href="home.html" class="navbar-item">Home</a></span>
-    <span><a href="documentation.html" class="navbar-item">Documentation</a></span>
-    <span><a href="favorites.html" class="navbar-item">Favorites</a></span> 
-    <span><a href="app.html" class="navbar-item">App</a></span> 
-  </a>
+<body class="has-background-dark">
+<nav class="navbar is-hidden-desktop is-grey" id="navbar">
+  <div class="navbar-brand has-background-dark">
+    <a class="navbar-item" href="home.html">
+    </a>
+    <a class="navbar-burger has-background-dark has-text-white" id="burger">
+      <span></span>
+      <span></span>
+      <span></span> 
+    </a>
+  </div>
+  <div class="navbar-menu is-hidden-desktop has-background-dark has-text-white" id="nav-links">
+      <div class="navbar-start">
+        <ul class="menu-list ">
+          <li>
+            <a href="./index.html#" class="has-text-white">
+              <span class="icon"><i class="fa fa-home"></i></span> About Me
+            </a>
+          </li>
+          <li>
+          <a href="#" class="has-text-white">
+            <span class="icon"><i class="fa fa-info"></i></span> Resume
+          </a>
+          </li>
+          <li >
+            <a class="has-text-white" id = "projects-nav">
+              <span class="icon"><i class="fa fa-table"></i></span> Projects
+            </a>
+            <ul id = "project-nav-children"></ul>
+          </li>
+          <li>
+            <a href="#" class ="has-text-white">
+              <span class="icon"><i class="fa fa-info"></i></span> Resume
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 </nav>
-
 <section class="main-content columns is-fullheight">
   <aside id = "aside-nav" class="column is-3 is-narrow-mobile section is-hidden-touch has-background-dark">
     <p class="menu-label is-hidden-touch has-text-white">Navigation</p>
@@ -35,10 +64,10 @@
       </li>
       <li >
         <a href="#" class="has-text-white" id = "projects" >
-          <span class="icon"><i class="fa fa-table"></i></span> projects
+          <span class="icon"><i class="fa fa-table"></i></span> Projects
         </a>
 
-        <ul id = "project-children">
+        <ul id = "project-side-children">
           <li>
             <a href="#" class ="has-text-white">
               <span class="icon is-small"><i class="fa fa-link"></i></span> Changeling
@@ -192,6 +221,7 @@
   </div>
   </div>
 </section>
+<footer></footer>
 </body>
 </html>
 </body>
