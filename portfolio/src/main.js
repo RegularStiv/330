@@ -38,7 +38,7 @@ function displayNavChildren(){
   }
 }
 function displaySideChildren(){
-  document.querySelector("#aside-nav").onclick = () =>{
+  document.querySelector("#projects-aside-nav").onclick = () =>{
     if(document.querySelector("#project-side-children").innerHTML != ''){
       document.querySelector("#project-side-children").innerHTML = ``;
     }

@@ -3,25 +3,38 @@ a.has-text-white:hover {
 }
 #aside-nav{
   position: sticky;
-  top:0;
+  top:0px;
   display:block;
   height:100vh;
-  margin-bottom: 0px;;
+
 }
 #navbar{
   position:sticky;
   top:0;
 }
+#stop-overflow{
+  background-color: white;
+}
 .columns.is-multiline.is-centered{
   padding-top:20px;
 }
 section{
-  margin:0px;
+  margin:020px;
+}
+#id-card{
+  padding-top:50px;
 }
 body{
-  padding:25px;
-  margin:0px;
 }
 html{
   margin:0px;
+}
+.card {
+  background-color: rgb(150, 150, 150);
+  color:white;
+}
+.content h2{
+  color:white;
+}
+#id-card{
 }
