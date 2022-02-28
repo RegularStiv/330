@@ -24,10 +24,9 @@ section{
 #id-card{
   padding-top:50px;
 }
-body{
-}
 html{
   margin:0px;
+  scroll-behavior: smooth;
 }
 .card {
   background-color: rgb(150, 150, 150);
@@ -36,5 +35,7 @@ html{
 .content h2{
   color:white;
 }
-#id-card{
+#inner-cards .card{
+  background-color: white;
+  color:#4a4a4a ;
 }

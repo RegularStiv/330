@@ -10,6 +10,7 @@ function displayNavChildren(){
   document.querySelector("#projects-nav").onclick = () =>{
     if(document.querySelector("#project-nav-children").innerHTML != ''){
       document.querySelector("#project-nav-children").innerHTML = ``;
+      document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8595`;
     }
     else{
       document.querySelector("#project-nav-children").innerHTML=`<li>
@@ -33,14 +34,16 @@ function displayNavChildren(){
       </a>
     </li>
     `;
+    document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
     }
-    console.log("click");
   }
+  
 }
 function displaySideChildren(){
   document.querySelector("#projects-aside-nav").onclick = () =>{
     if(document.querySelector("#project-side-children").innerHTML != ''){
       document.querySelector("#project-side-children").innerHTML = ``;
+      document.querySelector("#projects-aside-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8595`;
     }
     else{
       document.querySelector("#project-side-children").innerHTML=`<li>
@@ -64,8 +67,9 @@ function displaySideChildren(){
       </a>
     </li>
     `;
+    document.querySelector("#projects-aside-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
     }
-    console.log("click");
+    
   }
 }
   function init(){
