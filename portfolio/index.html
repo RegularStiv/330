@@ -50,7 +50,7 @@
           <li>
             <a href="./misc/Stephen_Rumpp_Resume.pdf" target="_blank" class="has-text-white">
               <span class="icon"><i class="fa fa-info"></i></span> Resume
-            </a>
+            </a> 
           </li>
         </ul>
       </div>
@@ -116,9 +116,9 @@
 
     </aside>
     <!-- #endregion -->
-    <div id="stop-overflow">
+    <div class="stop-overflow">
       <!-- #region desktop display -->
-      <div class="column is-12 is-hidden-touch">
+      <div class="column is-12 is-hidden-touch" id="projects-section">
         <div class="columns is-multiline" id="id-card">
           <div class="column has-text-centered is-centered">
             <div class=" columns is-multiline is-vcentered ">
@@ -200,15 +200,12 @@
         </div>
         <!-- #endregion -->
         <!-- #region Projects -->
-        <div class="columns is-multiline is-centered">
-          <div class="container column is-full">
-            <div class="card" id="changeling">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./images/change.png" alt="Placeholder image">
-                </figure>
-              </div>
-
+        <div class="columns is-multiline is-centered" >
+          <div class="column is-full container-change">
+            <div class="columns is-vcentered project">
+              
+              <div class="column is-8">
+              <div class="card" id="changeling">
               <div class="card-header is-shadowless">
                 <p class="card-header-title is-centered">
                   Changeling
@@ -223,56 +220,75 @@
                   <a href="https://www.changelingvr.com/">Visit Changeling's Website!</a>
                 </div>
               </div>
+              </div>
+            </div>
+            <div class="column is-4 right-project">
+              <figure class="image is-4by3">
+                <img src="./images/change.png" alt="Placeholder image">
+              </figure>
             </div>
           </div>
-          <div class="container column is-12">
-            <div class="card " id="snake">
-              <div class="card-image">
-                <figure class="image is-4by3">
+          </div>
+          <div class="column is-12 container-snake">
+            
+              <div class="columns is-vcentered project">
+                <div class="column is-4">
+                  <div class="image">
+                    <figure class="image is-4by3">
                   <img src="./images/snakeWideScreen.png" alt="Placeholder image">
                 </figure>
+                </div>
               </div>
+              <div class="card is-shadowless" id="snake">
               <div class="card-header is-shadowless">
-                <p class="card-header-title is-centered">
+                <p class="card-header-title is-centered  has-text-white">
                   Snake
                 </p>
               </div>
-              <div class="card-content">
+              <div class="card-content ">
                 <div class="content has-text-centered">
                   Snake Game I made for one of my classes. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Reiciendis doloribus autem quo quam eius, ex voluptatum atque in quasi consequuntur odit dicta
                   exercitationem reprehenderit itaque soluta id molestiae asperiores vel!
                   <br>
-                  <a href="https://people.rit.edu/sar7743/235/project3/">Play Now!</a>
+                  <a href="https://people.rit.edu/sar7743/235/project3/" class=" has-text-white is">Play Now!</a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="container column is-12 ">
-            <div class="card " id="unity">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./images/exerciseWideScreen.png" alt="Placeholder image">
-                </figure>
-              </div>
+        </div>
+          <div class=" column is-12 container-unity">
+            <div class="columns is-vcentered project" >
+              <div class="column is-8">
+                <div class="card is-shadowless"id="unity">
               <div class="card-header is-shadowless">
-                <p class="card-header-title is-centered">
+                <p class="card-header-title is-centered has-text-white ">
                   Unity
                 </p>
               </div>
-              <div class="card-content">
+              <div class="card-content has-text-white">
                 <div class="content has-text-centered">
                   A series of exercises made for one of my classes Lorem ipsum dolor sit amet consectetur adipisicing
                   elit. Natus aut minima beatae alias, voluptates voluptatem quae nam culpa dolore aliquam iusto
                   accusamus dolor corrupti a vel? Odit ducimus labore similique.
                   <br>
-                  <a href="https://igme-202.github.io/exercises-RegularStiv/">Try Them Out!</a>
+                  <a href="https://igme-202.github.io/exercises-RegularStiv/" class="has-text-white is-underlined">Try Them Out!</a>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
-          <div class="container column is-12" id="container-norman-desk">
-            <div class="columns  is-vcentered">
+              <div class="column is-4 right-project">
+                <div class="image">
+                  <figure class="image is-4by3">
+                    <img src="./images/exerciseWideScreen.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                </div>
+            </div>
+            </div>
+         
+          <div class="column is-12 container-norman">
+            <div class="columns is-vcentered project">
             <div class="column is-4">
               <div class="image" id="norman-img-desk">
                 <figure class="image is-4by3">
@@ -280,10 +296,10 @@
                 </figure>
               </div>
               </div>
-              <div class="column is-8 " id="text-norman">
+              <div class="column container is-8 " id="text-norman">
               <div class="card is-shadowless " id="norman-the-neckbeard">
               <div class="card-header is-shadowless">
-                <p class="card-header-title is-centered">
+                <p class="card-header-title title is-centered has-text-white">
                   Norman The Neckbeard
                 </p>
               </div>
@@ -299,9 +315,9 @@
             </div>
             </div>
           </div>
-          
+        </div>
           <div class="column is-full  is-vcentered" id="contact-me">
-            <div class="columns is-multiline is-centered is-vcentered has-text-centered">
+            <div class="columns is-multiline is-centered is-vcentered has-text-centered project">
               <div class="column is-full">
                 <h2 class="title">
                   Contact Me
@@ -324,6 +340,7 @@
         </div>
       </div>
       <!-- #endregion -->
+      <div class="stop-overflow">
       <!-- #region touch display -->
       <div class="column is-12 is-hidden-desktop" id="mobile">
         <div class="columns is-multiline" id="id-card-nav">
@@ -401,8 +418,8 @@
             </div>
           </div>
         </div>
-        <div class="columns is-multiline is-centered">
-          <div class="container column is-5">
+        <div class="columns is-multiline" >
+          <div class="column is-5 ">
             <div class="card" id="changeling-nav">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -509,6 +526,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
       <!-- #endregion -->
   </section>
