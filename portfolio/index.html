@@ -11,7 +11,7 @@
   <title>Stephen Rumpp's Portfolio</title>
 </head>
 
-<body class="">
+<body>
   <nav class="navbar is-hidden-desktop has-background-gray-dark" id="navbar">
     <div class="navbar-brand has-background-dark">
       <a class="navbar-item" href="home.html">
@@ -26,13 +26,13 @@
       <div class="navbar-start">
         <ul class="menu-list ">
           <li>
-            <a href="./index.html#" class="has-text-white">
+            <a href="#id-card-nav" class="has-text-white">
               <span class="icon"><i class="fa fa-home"></i></span> About Me
             </a>
           </li>
           <li>
-            <a href="#" class="has-text-white">
-              <span class="icon"><i class="fa fa-info"></i></span> Resume
+            <a href="#skills-nav" class="has-text-white">
+              <span class="icon"><i class="fa fa-info"></i></span> Skills
             </a>
           </li>
           <li>
@@ -42,7 +42,10 @@
             <ul id="project-nav-children"></ul>
           </li>
           <li>
-            <a href="#" class="has-text-white">
+            <a href="#contact-me-nav"class="has-text-white"><span class="icon"><i class="fa fa-table"></i></span> Contact</a>
+          </li>
+          <li>
+            <a href="./misc/Stephen_Rumpp_Resume.pdf" target="_blank" class="has-text-white">
               <span class="icon"><i class="fa fa-info"></i></span> Resume
             </a>
           </li>
@@ -50,15 +53,15 @@
       </div>
     </div>
   </nav>
-  <div id="stop-overflow">
-    <section class="main-content columns">
+  
+    <section class="main-content columns" id="main">
 
       <!-- side navbar -->
       <aside id="aside-nav" class="column is-3 is-narrow-mobile section is-hidden-touch has-background-dark">
         <p class="menu-label is-hidden-touch has-text-white">Navigation</p>
         <ul class="menu-list ">
           <li>
-            <a href="#bout-me" class="has-text-white">
+            <a href="#id-card" class="has-text-white">
               <span class="icon"><i class="fa fa-home"></i></span> About Me
             </a>
           </li>
@@ -84,16 +87,21 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="has-text-white">
-                  <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
+                <a href="#unity" class="has-text-white">
+                  <span class="icon is-small"><i class="fa fa-link"></i></span> Unity
                 </a>
               </li>
               <li>
-                <a href="#" class="has-text-white">
-                  <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
+                <a href="#norman-the-neckbeard" class="has-text-white">
+                  <span class="icon is-small"><i class="fa fa-link"></i></span> Norman The Neckbeard
                 </a>
               </li>
             </ul>
+          </li>
+          <li>
+            <a href="#contact-me" class="has-text-white">
+              <span class="icon"><i class="fa fa-info"></i></span> Contact me
+            </a>
           </li>
           <li>
             <a href="./misc/Stephen_Rumpp_Resume.pdf" target="blank" class="has-text-white">
@@ -103,7 +111,8 @@
         </ul>
 
       </aside>
-      <div class="column is-9 is-hidden-touch">
+      <div id="stop-overflow">
+      <div class="column is-12 is-hidden-touch">
         <div class="columns is-multiline" id="id-card">
           <div class="column has-text-centered is-centered">
             <div class=" columns is-multiline is-vcentered ">
@@ -112,7 +121,7 @@
                 <!-- <div class="card-content"> -->
                 <!-- <div class="card-image"> -->
                 <figure class="image is-200x100">
-                  <img src="./images/unnamed.jpg" alt="Placeholder image">
+                  <img src="./images/IMG-1140.jpg" alt="Placeholder image">
                 </figure>
                 <!-- </div> -->
                 <!-- </div> -->
@@ -142,48 +151,43 @@
               <div class="card">
                 <div class="card-content ">
                   <div class="content ">
-                    <p>lkdjwhflakds</p>
+                    <h2 class="title">Skills</h2>
                     <div class="columns" id="inner-cards">
-                      <div class="column is-4">
+                      <div class="column is-6">
                         <div class="card">
-                          <div class="card-header">
+                          <div class="card-header is-shadowless">
                             <p class="card-header-title is-centered">
-                              jkladsfhh
+                              Languages
                             </p>
                           </div>
                           <div class="card-content has-text-left">
                             <ul>
-                              <li>hjhgjh</li>
-                            </ul>
+                              <li>C#</li>
+                                <li>C++</li>
+                                <li>HTML</li>                           
+                                <li>CSS</li>                          
+                                <li>JavaScript</li>
+                                <li>Java</li>                       
+                              </ul>
                           </div>
                         </div>
                       </div>
-                      <div class="column is-4">
+                      <div class="column is-6">
                         <div class="card">
-                          <div class="card-header">
+                          <div class="card-header is-shadowless">
                             <p class="card-header-title is-centered">
-                              jkladsfhh
+                              Software
                             </p>
                           </div>
                           <div class="card-content has-text-left">
-                            <ul>
-                              <li>hjhgjh</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="column is-4">
-                        <div class="card">
-                          <div class="card-header">
-                            <p class="card-header-title is-centered">
-                              jkladsfhh
-                            </p>
-                          </div>
-                          <div class="card-content has-text-left">
-                            <ul>
-                              <li>hjhgjh</li>
-                              <li>jhdfkjsdhfkjshf</li>
-                            </ul>
+                             <ul>
+                                <li>Unity</li>            
+                                <li>Unreal Engine 4</li>
+                                <li>Visual Studio</li>
+                                <li>VS Code</li>
+                                <li>GitHub</li>
+                                <li>MonoGame</li>
+                              </ul>
                           </div>
                         </div>
                       </div>
@@ -199,206 +203,126 @@
             <div class="card" id="changeling">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                  <img src="./images/change.png" alt="Placeholder image">
                 </figure>
               </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
-                </div>
 
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <div class="card-header is-shadowless">
+                  <p class="card-header-title is-centered">
+                    Changeling
+                  </p>
                 </div>
-              </div>
+                <div class="card-content">
+                  <div class="content has-text-centered">
+                   Game I did everything and got nothing. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat culpa saepe laboriosam temporibus molestiae doloribus? Vitae, quo. Voluptas totam mollitia facere doloribus excepturi, similique incidunt est aliquam molestiae illum reiciendis!
+                   <br>
+                   <a href="https://www.changelingvr.com/">Visit Changeling's Website!</a>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="container column is-5">
-            <div class="card">
+            <div class="card "id="snake">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                  <img src="./images/snakeWideScreen.png" alt="Placeholder image">
                 </figure>
               </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
+                <div class="card-header is-shadowless">
+                  <p class="card-header-title is-centered">
+                    Snake
+                  </p>
                 </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <div class="card-content">
+                  <div class="content has-text-centered">
+                    Snake Game I made for one of my classes. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis doloribus autem quo quam eius, ex voluptatum atque in quasi consequuntur odit dicta exercitationem reprehenderit itaque soluta id molestiae asperiores vel!
+                    <br>
+                    <a href ="https://people.rit.edu/sar7743/235/project3/">Play Now!</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
+            <div class="container column is-5">
+              <div class="card "id="unity">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="./images/exerciseWideScreen.png" alt="Placeholder image">
+                  </figure>
                 </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <div class="card-header is-shadowless">
+                  <p class="card-header-title is-centered">
+                    Unity
+                  </p>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
+                <div class="card-content">
+                  <div class="content has-text-centered">
+                    A series of exercises made for one of my classes  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aut minima beatae alias, voluptates voluptatem quae nam culpa dolore aliquam iusto accusamus dolor corrupti a vel? Odit ducimus labore similique.
+                    <br>
+                    <a href="https://igme-202.github.io/exercises-RegularStiv/">Try Them Out!</a>
                   </div>
                 </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                 </div>
               </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="column is-12 is-hidden-desktop">
-        <div class="columns is-multiline" id="id-card">
-          <div class="column has-text-centered is-centered">
-            <div class=" columns is-multiline is-vcentered ">
-              <div class="container column is-5">
-                <div class="card">
+            <div class="container column is-5">
+              <div class="card" id = "norman-the-neckbeard">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="images/normanWideScreen.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                
+                  <div class="card-header is-shadowless">
+                    <p class="card-header-title is-centered">
+                      Norman The Neckbeard
+                    </p>
+                  </div>
                   <div class="card-content">
-                    <div class="card-image">
-                      <figure class="image is-200x100">
-                        <img src="./images/unnamed.jpg" alt="Placeholder image">
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="container column is-5 is-centered">
-                <div class="card">
-                  <div class="card-content">
-                    <div class="content">
-
-                      <h2 class="is-size-2">Stephen Rumpp</h2>
-                      <p class="is-size-5">Game Designer and Developer</p>
+                    <div class="content has-text-centered">
+                      The First Game I made with a group of three other people using Monogame. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo in ex quam perferendis, dolorum non accusantium, hic, magni nisi voluptatum aspernatur consectetur voluptatibus atque perspiciatis quia ipsam suscipit doloremque.
                       <br>
-                      <p class="is-size-6">Student at Rochester Institute of Technology</p>
                     </div>
                   </div>
+              </div>
+            </div>
+            <div class="column is-full  is-vcentered" id="contact-me">
+              <div class="columns is-multiline is-centered is-vcentered has-text-centered">
+                <div class="column is-full">
+                  <h2 class = "title">
+                    Contact Me
+                  </h2>
+                </div>
+                <div class="column is-3 container ">
+                  <a href="https://github.com/RegularStiv" target="_blank"><img alt="github link" id="bottom-img"
+                      src="./images/GitHub-Mark-120px-plus.png"></a>
+                </div>
+                <div class="column is-3 container has-text-centered">
+                  <a href="https://www.linkedin.com/in/stephen-rumpp/"target="_blank"><img alt="linkedin link" id="bottom-img"
+                      src="./images/linkedin_black_logo_icon_147114.png"></a>
+                </div>
+                <div class="column is-3 container is-vcentered">
+                  <a href="mailto:stephenrumpp7@gmail.com" target="_blank"><img alt="email link" id="bottom-img"
+                      src="./images/mail.png"></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="columns is-centered">
-          <div class="column is-10">
-            <div class="has-text-centered" id="skills">
-              <div class="card">
-                <div class="card-content ">
-                  <div class="content ">
-                    <p>lkdjwhflakds</p>
-                    <div class="columns" id="inner-cards">
-                      <div class="column is-4">
-                        <div class="card">
-                          <div class="card-header">
-                            <p class="card-header-title is-centered">
-                              jkladsfhh
-                            </p>
-                          </div>
-                          <div class="card-content has-text-left">
-                            <ul>
-                              <li>hjhgjh</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="column is-4">
-                        <div class="card">
-                          <div class="card-header">
-                            <p class="card-header-title is-centered">
-                              jkladsfhh
-                            </p>
-                          </div>
-                          <div class="card-content has-text-left">
-                            <ul>
-                              <li>hjhgjh</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="column is-4">
-                        <div class="card">
-                          <div class="card-header">
-                            <p class="card-header-title is-centered">
-                              jkladsfhh
-                            </p>
-                          </div>
-                          <div class="card-content has-text-left">
-                            <ul>
-                              <li>hjhgjh</li>
-                              <li>jhdfkjsdhfkjshf</li>
-                            </ul>
-                          </div>
-                        </div>
+        <div class="column is-12 is-hidden-desktop">
+          <div class="columns is-multiline" id="id-card-nav">
+            <div class="column has-text-centered is-centered">
+              <div class=" columns is-multiline is-vcentered ">
+                <div class="container column is-5" id="me-nav">
+                  <img src ="images/IMG-1140.jpg" alt="Placeholder">
+                </div>
+                <div class="container column is-5 is-centered">
+                  <div class="card">
+                    <div class="card-content">
+                      <div class="content">
+
+                        <h2 class="is-size-2">Stephen Rumpp</h2>
+                        <p class="is-size-5">Game Designer and Developer</p>
+                        <br>
+                        <p class="is-size-6">Student at Rochester Institute of Technology</p>
                       </div>
                     </div>
                   </div>
@@ -406,155 +330,170 @@
               </div>
             </div>
           </div>
+          <div class="columns is-centered">
+            <div class="column is-10">
+              <div class="has-text-centered" id="skills-nav">
+                <div class="card">
+                  <div class="card-content ">
+                    <div class="content ">
+                      <h2 class="title">Skills</h2>
+                      <div class="columns" id="inner-cards">
+                        <div class="column is-6">
+                          <div class="card">
+                            <div class="card-header is-shadowless">
+                              <p class="card-header-title is-centered">
+                                Languages
+                              </p>
+                            </div>
+                            <div class="card-content has-text-left">
+                              <ul>
+                                <li>C#</li>
+                                  <li>C++</li>
+                                  <li>HTML</li>                           
+                                  <li>CSS</li>                          
+                                  <li>JavaScript</li>
+                                  <li>Java</li>                       
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="column is-6">
+                          <div class="card">
+                            <div class="card-header is-shadowless">
+                              <p class="card-header-title is-centered">
+                                Software
+                              </p>
+                            </div>
+                              <div class="card-content has-text-left">
+                                <ul>
+                                   <li>Unity</li>            
+                                   <li>Unreal Engine 4</li>
+                                   <li>Visual Studio</li>
+                                   <li>VS Code</li>
+                                   <li>GitHub</li>
+                                   <li>MonoGame</li>
+                                 </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-multiline is-centered">
+            <div class="container column is-5">
+              <div class="card" id="changeling-nav">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="./images/change.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                
+                  <div class="card-header is-shadowless">
+                    <p class="card-header-title is-centered">
+                      Changeling
+                    </p>
+                  </div>
+                  <div class="card-content">
+                  <div class="content has-text-centered">
+                   Game I did everything and got nothing.
+                   <br>
+                   <a href="https://www.changelingvr.com/">Visit Changeling's Website!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container column is-5">
+              <div class="card" id="snake-nav">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="./images/snakeWideScreen.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                  <div class="card-header is-shadowless">
+                    <p class="card-header-title is-centered">
+                      Snake
+                    </p>
+                  </div>
+                  <div class="card-content">
+                    <div class="content has-text-centered">
+                      Snake Game I made for one of my classes
+                      <br>
+                      <a href ="https://people.rit.edu/sar7743/235/project3/">Play Now!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container column is-5">
+                <div class="card" id="unity-nav" >
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="./images/exerciseWideScreen.png" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="card-header is-shadowless">
+                    <p class="card-header-title is-centered">
+                      Unity
+                    </p>
+                  </div>
+                  <div class="card-content">
+                    <div class="content has-text-centered">
+                      A series of exercises made for one of my classes 
+                      <br>
+                      <a href="https://igme-202.github.io/exercises-RegularStiv/">Try Them Out!</a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              <div class="container column is-5">
+                <div class="card" id="norman-the-neckbeard-nav">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="./images/normanWideScreen.png" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  
+                    <div class="card-header is-shadowless">
+                      <p class="card-header-title is-centered">
+                        Norman The Neckbeard
+                      </p>
+                    </div>
+                    <div class="card-content">
+                    <div class="content has-text-centered">
+                      The First Game I made with a group of three other people using Monogame.
+                      <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="column is-full is-vcentered"id="contact-me-nav">
+            <div class="columns is-multiline is-centered is-vcentered has-text-centered">
+              <div class="column is-full">
+                <h2 class = "title">
+                  Contact Me
+                </h2>
+              </div>
+              <div class="column is-3 container ">
+                <a href="https://github.com/RegularStiv"target="_blank"><img id="bottom-img"
+                    src="./images/GitHub-Mark-120px-plus.png"></a>
+              </div>
+              <div class="column is-3 container">
+                <a href="https://www.linkedin.com/in/stephen-rumpp/"target="_blank"><img id="bottom-img"
+                    src="./images/linkedin_black_logo_icon_147114.png"></a>
+              </div>
+              <div class="column is-3 container is-vcentered">
+                <a href="mailto:stephenrumpp7@gmail.com" target="_blank"><img id="bottom-img"
+                    src="./images/mail.png"></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="columns is-multiline is-centered">
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
-                </div>
 
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
-                </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
-                </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container column is-5">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
-                  </div>
-                </div>
-
-                <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                  <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class = "column is-full is-mobile">
-          <div class="columns is-centered is-vcentered has-text-centered">
-            <div class= "column is-3">
-              <img>
-              <p>
-                sdnkdf
-              </p>
-            </div>
-            <div class= "column is-3">
-              <img>
-              <p>
-                kjsdafhka
-              </p>
-            </div>
-            <div class= "column is-3">
-              <img>
-              <p>
-                asjdfhka
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
     </section>
   </div>
   </div>

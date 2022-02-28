@@ -13,26 +13,27 @@ function displayNavChildren(){
       document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8595`;
     }
     else{
-      document.querySelector("#project-nav-children").innerHTML=`<li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Changeling
-      </a>
-    </li>
-    <li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
-      </a>
-    </li>
-    <li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
-      </a>
-    </li>
-    <li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
-      </a>
-    </li>
+      document.querySelector("#project-nav-children").innerHTML=`
+      <li>
+                <a href="#changeling-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Changeling
+                </a>
+              </li>
+              <li>
+                <a href="#snake-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Snake
+                </a>
+              </li>
+              <li>
+                <a href="#unity-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Unity
+                </a>
+              </li>
+              <li>
+                <a href="#norman-the-neckbeard-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Norman the Neckbeard
+                </a>
+              </li>
     `;
     document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
     }
@@ -47,23 +48,23 @@ function displaySideChildren(){
     }
     else{
       document.querySelector("#project-side-children").innerHTML=`<li>
-      <a href="#" class ="has-text-white">
+      <a href="#changeling" class="has-text-white">
         <span class="icon is-small"><i class="fa fa-link"></i></span> Changeling
       </a>
     </li>
     <li>
-      <a href="#" class ="has-text-white">
+      <a href="#snake" class="has-text-white">
         <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
       </a>
     </li>
     <li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
+      <a href="#unity" class="has-text-white">
+        <span class="icon is-small"><i class="fa fa-link"></i></span> Unity
       </a>
     </li>
     <li>
-      <a href="#" class ="has-text-white">
-        <span class="icon is-small"><i class="fa fa-link"></i></span> Snake
+      <a href="#norman-the-neckbeard" class="has-text-white">
+        <span class="icon is-small"><i class="fa fa-link"></i></span> Norman the Neckbeard
       </a>
     </li>
     `;
