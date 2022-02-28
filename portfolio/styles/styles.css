@@ -13,9 +13,9 @@ a.has-text-white:hover {
   top:0;
 }
 #stop-overflow{
+  padding:0px;
   background-color: white;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 .columns.is-multiline.is-centered{
   padding-top:20px;
@@ -41,9 +41,6 @@ html{
   background-color: white;
   color:#4a4a4a ;
 }
-body{
-  
-}
 #bottom-img{
   height:100px;
 }
@@ -54,5 +51,15 @@ body{
   align-self: stretch;
 }
 #container-norman-desk{
-  background: linear-gradient(90deg, rgba(3,0,50,1) 0%, rgba(209,255,239,1) 100%);
+  background: linear-gradient(90deg, rgba(48,46,78,1) 4%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);
+}
+#main{
+  margin-right:0px;
+}
+#mobile{
+  padding:0px;
+}
+#norman-the-neckbeard{
+  background-color: transparent;
+  
 }
