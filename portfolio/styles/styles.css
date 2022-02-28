@@ -50,3 +50,9 @@ body{
 #id-card-nav{
   padding-top:50px;
 }
+#norman-img-desk{
+  align-self: stretch;
+}
+#container-norman-desk{
+  background: linear-gradient(90deg, rgba(3,0,50,1) 0%, rgba(209,255,239,1) 100%);
+}
