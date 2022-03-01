@@ -37,18 +37,18 @@ html{
 .content h2{
   color:white;
 }
-#inner-cards .card{
+.inner-cards .card{
   background-color: white;
   color:#4a4a4a ;
 }
-#bottom-img{
+.bottom-img{
   height:100px;
 }
 #id-card-nav{
   padding-top:50px;
 }
 #norman-img-desk{
-  align-self: stretch;
+  /* align-self: stretch; */
 }
 .container-norman{
   /* height: 500px; */
@@ -65,11 +65,9 @@ background: linear-gradient(45deg, rgba(25,3,3,1) 0%, rgba(125,125,125,1) 50%, r
   background-color: transparent;
   
 }
-#unity{
-  background: transparent;
-}
-#snake{
-  background: transparent;
+
+.card-background{
+  background:transparent;
 }
 .project{
   height: 500px;

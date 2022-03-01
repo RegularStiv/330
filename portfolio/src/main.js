@@ -1,4 +1,4 @@
-function setDropDown(){
+function setDropDown() {
   const burgerIcon = document.querySelector('#burger');
   const navbarMenu = document.querySelector('#nav-links');
 
@@ -12,7 +12,7 @@ function displayNavChildren(){
       document.querySelector("#project-nav-children").innerHTML = ``;
       document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8595`;
     }
-    else{
+    else if(window.outerWidth >768){
       document.querySelector("#project-nav-children").innerHTML=`
       <li>
                 <a href="#changeling-nav" class="has-text-white">
@@ -31,6 +31,31 @@ function displayNavChildren(){
               </li>
               <li>
                 <a href="#norman-the-neckbeard-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Norman the Neckbeard
+                </a>
+              </li>
+    `;
+    document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
+    }
+    else if(window.outerWidth < 768){
+      document.querySelector("#project-nav-children").innerHTML=`
+      <li>
+                <a href="#changeling-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Changeling
+                </a>
+              </li>
+              <li>
+                <a href="#snake-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Snake
+                </a>
+              </li>
+              <li>
+                <a href="#unity-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Unity
+                </a>
+              </li>
+              <li>
+                <a href="#norman-the-neckbeard-nav-mobile" class="has-text-white">
                 <span class="icon"><i class="fa fa-table"></i></span> Norman the Neckbeard
                 </a>
               </li>
@@ -86,3 +111,55 @@ function displaySideChildren(){
     }
 }
   window.onload = init();
+  window.onresize = function(){
+    if(window.innerWidth >768){
+      document.querySelector("#project-nav-children").innerHTML=`
+      <li>
+                <a href="#changeling-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Changeling
+                </a>
+              </li>
+              <li>
+                <a href="#snake-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Snake
+                </a>
+              </li>
+              <li>
+                <a href="#unity-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Unity
+                </a>
+              </li>
+              <li>
+                <a href="#norman-the-neckbeard-nav" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Norman the Neckbeard
+                </a>
+              </li>
+    `;
+    document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
+    }
+    else {
+      document.querySelector("#project-nav-children").innerHTML=`
+      <li>
+                <a href="#changeling-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Changeling
+                </a>
+              </li>
+              <li>
+                <a href="#snake-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Snake
+                </a>
+              </li>
+              <li>
+                <a href="#unity-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Unity
+                </a>
+              </li>
+              <li>
+                <a href="#norman-the-neckbeard-nav-mobile" class="has-text-white">
+                <span class="icon"><i class="fa fa-table"></i></span> Norman the Neckbeard
+                </a>
+              </li>
+    `;
+    document.querySelector("#projects-nav").innerHTML = `<span class="icon"><i class="fa fa-table"></i></span> Projects &#8593`;
+    }
+  }
