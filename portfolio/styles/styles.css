@@ -25,6 +25,7 @@ section{
 }
 #id-card{
   padding-top:50px;
+  margin-bottom:75px;
 }
 html{
   margin:0px;
@@ -51,7 +52,7 @@ html{
 .container-norman{
   /* height: 500px; */
   background: rgb(51,3,3);
-background: linear-gradient(45deg, rgba(25,3,3,1) 0%, rgba(125,125,125,1) 50%, rgba(25,3,3,1) 100%);
+
 }
 #main{
   margin:0px;
@@ -82,13 +83,14 @@ background: linear-gradient(45deg, rgba(25,3,3,1) 0%, rgba(125,125,125,1) 50%, r
 }
 .container-snake{
   background: rgb(29,51,3);
-background: linear-gradient(45deg, rgba(29,51,3,1) 0%, rgba(125,125,125,1) 50%, rgba(29,51,3,1) 100%);
+
 }
 .container-unity{
   background: rgb(51,35,3);
-background: linear-gradient(135deg, rgba(51,35,3,1) 0%, rgba(125,125,125,1) 50%, rgba(51,35,3,1) 100%);
 }
 .container-change{
-  background: rgb(51,3,39);
-background: linear-gradient(135deg, rgba(51,3,39,1) 0%, rgba(125,125,125,1) 50%, rgba(51,3,39,1) 100%);
+  background: rgb(51,3,39,.8);
+}
+.side-image{
+  height:50px;
 }
