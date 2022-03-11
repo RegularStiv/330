@@ -1,6 +1,6 @@
 
 import "./spell-card.js";
-import { loadFile, setDropDown, setNavActive } from "./utils.js";
+import { hashCode, loadFile, setDropDown, setNavActive } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
 let spellArray = [];
@@ -9,7 +9,8 @@ let prefix = "sar7743-";
 const searchBarKey = prefix + "search-key";
 const classKey = prefix + "class-key"; 
 const spellKey = prefix + "spell-key";
-const favKey = prefix + "fav-key-";
+const spellbookArrayKey = "spellbook-array-key";
+let spellbookKey = prefix + hashCode(document.querySelector("#spellbook-select").value);
 // mobile menu
 
 
@@ -17,6 +18,30 @@ const favKey = prefix + "fav-key-";
 document.querySelector("#class-select").onchange = filterSpells;
 document.querySelector("#level-select").onchange = filterSpells;
 document.querySelector("#search-button").onclick = filterSpellsButton;
+document.querySelector("#spellbook-select").onchange = filterSpells;
+document.querySelector("#new-spell-button").onclick = newSpellBook;
+function newSpellBook(){
+    
+    if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
+        let spellbookArray = JSON.parse(localStorage.getItem(spellbookArrayKey));
+        spellbookArray.push(document.querySelector("#spell-name-box").value);
+        localStorage.setItem(spellbookArrayKey,JSON.stringify(spellbookArray));
+    }
+    else{
+        let spellbookArray = [document.querySelector("#spell-name-box").value];
+        localStorage.setItem(spellbookArrayKey,JSON.stringify(spellbookArray));
+    }
+        let string = "";
+        let array = JSON.parse(localStorage.getItem(spellbookArrayKey));
+        for (const iterator of array) {
+            string += `<option>${iterator}</option>`;
+        }
+        document.querySelector("#spellbook-select").innerHTML = string;
+
+        let hash = hashCode(document.querySelector("#spell-name-box").value);
+        localStorage.setItem(hash, JSON.stringify([]));
+    
+}
 function filterSpells() {
     document.querySelector("#img").innerHTML = " ";
     classSpells = [];
@@ -48,7 +73,6 @@ const getClassSpells = json =>{
         }
     }
 }
-
 const getLevelSpells = json =>{
     levelSpells = json.results;
     classSpells.forEach(cSpell => {
@@ -98,8 +122,16 @@ function init(){
     }
     setNavActive();
     setDropDown();
+    console.log(spellbookKey);
+    if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
+        let string = "";
+        let array = JSON.parse(localStorage.getItem(spellbookArrayKey));
+        for (const iterator of array) {
+            string += `<option>${iterator}</option>`;
+        }
+        document.querySelector("#spellbook-select").innerHTML = string;
+    }
 }
-
 const showSpell = spellObj =>{
     console.log(spellObj);
     const spellCard = document.createElement('spell-card');
@@ -138,14 +170,25 @@ const showSpell = spellObj =>{
     spellCard.dataset.desc = spellObj.desc ?? "No name Found";
     spellCard.dataset.range = spellObj.range ?? "No name Found";
     spellCard.dataset.url = spellObj.url ?? "NAN";
+    if(JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value))) != null){
+        let urlArray = JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value)));
+        for(let i = 0; i < urlArray.length; i++)
+        {
+            if(spellCard.dataset.url == urlArray[i]){
+                spellCard.shadowRoot.querySelector("#fav-button").innerHTML = "favorited";
+            }
+        }
+    }
+    
     document.querySelector("#img").appendChild(spellCard);
 
     spellCard.buttonCallBack = addToFavorites;
-  };
-
-  function addToFavorites(url){
-    if(JSON.parse(localStorage.getItem(favKey)) != null){
-        let urlArray = JSON.parse(localStorage.getItem(favKey));
+};
+function addToFavorites(url){
+    spellbookKey = hashCode(document.querySelector("#spellbook-select").value);
+    console.log(spellbookKey);
+    if(JSON.parse(localStorage.getItem(spellbookKey)) != null){
+        let urlArray = JSON.parse(localStorage.getItem(spellbookKey));
         for(let i = 0; i < urlArray.length; i++){
             if(url == urlArray[i])
             {
@@ -153,12 +196,12 @@ const showSpell = spellObj =>{
             }
         }
         urlArray.push(url);
-        localStorage.setItem(favKey,JSON.stringify(urlArray));
+        localStorage.setItem(spellbookKey,JSON.stringify(urlArray));
     }
     else{
         let urlArray = [url];
-        localStorage.setItem(favKey, JSON.stringify(urlArray));
+        localStorage.setItem(spellbookKey, JSON.stringify(urlArray));
     }
-  }
+}
 
 window.onload = init;

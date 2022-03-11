@@ -1,9 +1,9 @@
 //import statements
-import { loadFile, setDropDown, setNavActive } from "./utils.js";
+import { loadFile, setDropDown, setNavActive, hashCode } from "./utils.js";
 import "./favorite-cards.js";
 //key to all favorited spells
-const favKey = "sar7743-fav-key";
-
+let spellbookKey = "sar7743-fav-key";
+document.querySelector("#spellbooks").onchange = loadDifferentSpells;
 const showSpell = spellObj =>{
     //logs the json 
     console.log(spellObj);
@@ -56,6 +56,10 @@ const showSpell = spellObj =>{
     //appends the section with the card
     document.querySelector("#img").appendChild(spellCard);
   };
+function loadDifferentSpells(){
+    document.querySelector("#img").innerHTML = "";
+    getCardsFromStorage(hashCode(document.querySelector("#spellbooks").value));
+}
 //calls load file on a url
   const loadURL = (urlEnd) => {
     const url = `https://www.dnd5eapi.co${urlEnd}`;
@@ -63,17 +67,33 @@ const showSpell = spellObj =>{
   }
   //sets up the page onload
   function init(){
-      //if the local storage array exists 
-      if(JSON.parse(localStorage.getItem(favKey)) != null){
+      
+      //set up functions
+      setNavActive();
+      setDropDown();
+      let arrayKey = "spellbook-array-key";
+      if(JSON.parse(localStorage.getItem(arrayKey)) != null){
+        let string = "";
+        let array = JSON.parse(localStorage.getItem(arrayKey));
+        for (const iterator of array) {
+            string += `<option>${iterator}</option>`;
+        }
+        console.log(string);
+        document.querySelector("#spellbooks").innerHTML = string;
+    }
+
+    getCardsFromStorage(hashCode(document.querySelector("#spellbooks").value));
+    
+  }
+  const getCardsFromStorage = (key) =>{
+        //if the local storage array exists 
+      if(JSON.parse(localStorage.getItem(key)) != null){
           //goes through the JSON and makes an array 
-        let urlArray = JSON.parse(localStorage.getItem(favKey));
+        let urlArray = JSON.parse(localStorage.getItem(key));
         for (const iterator of urlArray) {
             //loads each url in the array
             loadURL(iterator);
         }
       }
-      //set up functions
-      setNavActive();
-      setDropDown();
-  }
+  };
   window.onload = init;

@@ -35,4 +35,4 @@ const hashCode = (str) => {
   }
   return hash;
 }
-  export {loadFile,setNavActive, setDropDown,hashCode};
+  export {loadFile,setNavActive, setDropDown, hashCode};
