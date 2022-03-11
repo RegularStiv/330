@@ -24,4 +24,15 @@ burgerIcon.addEventListener("click", () => {
     navbarMenu.classList.toggle('is-active');
 });
 }
-  export {loadFile,setNavActive, setDropDown};
+const hashCode = (str) => {
+  let hash = 0;
+  if (str.length == 0) {
+      return hash;
+  }
+  for (let i = 0; i < str.length; i++) {
+      let char = str.charCodeAt(i);
+      hash = hash * 31 + char;
+  }
+  return hash;
+}
+  export {loadFile,setNavActive, setDropDown,hashCode};

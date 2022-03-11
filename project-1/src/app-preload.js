@@ -7,9 +7,9 @@ let spellArray = [];
 let url = "https://www.dnd5eapi.co/api/spells?level=0";
 let prefix = "sar7743-";
 const searchBarKey = prefix + "search-key";
-const classKey = prefix + "class-key";
+const classKey = prefix + "class-key"; 
 const spellKey = prefix + "spell-key";
-const favKey = prefix + "fav-key"
+const favKey = prefix + "fav-key-";
 // mobile menu
 
 
@@ -146,6 +146,12 @@ const showSpell = spellObj =>{
   function addToFavorites(url){
     if(JSON.parse(localStorage.getItem(favKey)) != null){
         let urlArray = JSON.parse(localStorage.getItem(favKey));
+        for(let i = 0; i < urlArray.length; i++){
+            if(url == urlArray[i])
+            {
+                return;
+            }
+        }
         urlArray.push(url);
         localStorage.setItem(favKey,JSON.stringify(urlArray));
     }

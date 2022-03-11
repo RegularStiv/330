@@ -5,7 +5,7 @@ import "./favorite-cards.js";
 const favKey = "sar7743-fav-key";
 
 const showSpell = spellObj =>{
-    //logs the json
+    //logs the json 
     console.log(spellObj);
     //creates a spell card
     const spellCard = document.createElement('fav-spell-card');
