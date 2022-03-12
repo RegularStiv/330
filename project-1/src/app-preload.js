@@ -1,5 +1,6 @@
 
 import "./spell-card.js";
+import "./stored-cards.js";
 import { hashCode, loadFile, setDropDown, setNavActive } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
@@ -10,6 +11,7 @@ const searchBarKey = prefix + "search-key";
 const classKey = prefix + "class-key"; 
 const spellKey = prefix + "spell-key";
 const spellbookArrayKey = "spellbook-array-key";
+const spellbookIndexKey = prefix + "spellbook-index-key";
 let spellbookKey = prefix + hashCode(document.querySelector("#spellbook-select").value);
 // mobile menu
 
@@ -51,12 +53,24 @@ function filterSpells() {
     const filterSpell = document.querySelector("#level-select").value;
     let levelIndex = parseInt(document.querySelector("#level-select").options[document.querySelector("#level-select").selectedIndex].value);
     let classIndex = (document.querySelector("#class-select").options[document.querySelector("#class-select").selectedIndex].value);
+    let spellBookIndex = document.querySelector("#spellbook-select").options[document.querySelector("#spellbook-select").selectedIndex].value;
     localStorage.setItem(spellKey,levelIndex);
     localStorage.setItem(classKey,classIndex);
+    localStorage.setItem(spellbookIndexKey,spellBookIndex);
     url = "https://www.dnd5eapi.co/api/classes/" + filterClass + "/spells";
     loadFile(url, getClassSpells);
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
     loadFile(url, getLevelSpells);
+
+    document.querySelector("#side-cards").innerHTML = " ";
+
+    
+    if(JSON.parse(hashCode(document.querySelector("#spellbook-select").value)) != null){
+        let sideArray = JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value)));
+        for (const iterator of sideArray) {
+            loadFile("https://www.dnd5eapi.co"+iterator,showSideSpell);
+        }
+    }
 }
 const getClassSpells = json =>{
     classSpells = json.results;
@@ -89,10 +103,9 @@ const getLevelSpells = json =>{
     }
     
 }
+
 function filterSpellsButton(){
     document.querySelector("#img").innerHTML = " ";
-    classSpells = [];
-    levelSpells = [];
     spellArray = [];
     url = "https://www.dnd5eapi.co/api/spells/?name=";
     let search = document.querySelector("#search-box").value;
@@ -102,11 +115,27 @@ function filterSpellsButton(){
 }
 const loopAllSpells = json => {
     for (const iterator of json.results) {
-        loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
+        loadFile("https://www.dnd5eapi.co"+iterator.url, showSpell);
     }
 }
 function init(){
-    filterSpells();
+    if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
+        let string = "";
+        let array = JSON.parse(localStorage.getItem(spellbookArrayKey));
+        for (const iterator of array) {
+            string += `<option>${iterator}</option>`;
+        }
+        document.querySelector("#spellbook-select").innerHTML = string;
+    }
+    else{
+        localStorage.setItem(spellbookArrayKey, 0);
+    }
+    if(localStorage.getItem(spellbookIndexKey) == null){
+        localStorage.setItem(spellbookIndexKey, 0);
+    }
+    else{
+        document.querySelector("#spellbook-select").value = localStorage.getItem(spellbookIndexKey);
+    }
     document.querySelector("#search-box").value = localStorage.getItem(searchBarKey);
     if(localStorage.getItem(classKey) == null){
         localStorage.setItem(classKey, 0);
@@ -120,23 +149,21 @@ function init(){
     else{
         document.querySelector("#level-select").value = localStorage.getItem(spellKey);
     }
+    filterSpells();
     setNavActive();
     setDropDown();
-    console.log(spellbookKey);
-    if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
-        let string = "";
-        let array = JSON.parse(localStorage.getItem(spellbookArrayKey));
-        for (const iterator of array) {
-            string += `<option>${iterator}</option>`;
-        }
-        document.querySelector("#spellbook-select").innerHTML = string;
-    }
+    
 }
 const showSpell = spellObj =>{
-    console.log(spellObj);
     const spellCard = document.createElement('spell-card');
     spellCard.dataset.name = spellObj.name ?? "No name Found";
     spellCard.dataset.level = spellObj.level ?? "No name Found";
+    let classes = spellObj.classes;
+    let string = "";
+    for (const iterator of classes) {
+        string += iterator.name + " ";
+    }
+    spellCard.dataset.classes = string;
     if(spellObj.damage){
         if(spellObj.damage.damage_at_slot_level){
             spellCard.dataset.damage = "Damage Dealt per spell slot " + spellObj.damage.damage_at_slot_level[`${spellObj.level}`] ?? "No name Found";
@@ -179,14 +206,24 @@ const showSpell = spellObj =>{
             }
         }
     }
-    
+    spellCard.classList.add("column");
+    spellCard.classList.add("is-4");
     document.querySelector("#img").appendChild(spellCard);
 
     spellCard.buttonCallBack = addToFavorites;
+    
 };
+const showSideSpell = spellObj =>{
+    const spellCard = document.createElement('side-spell-card');
+    spellCard.dataset.name = spellObj.name ?? "No Name Found";
+    spellCard.dataset.url = spellObj.url ?? "No url Found";
+
+    spellCard.classList.add("column");
+    spellCard.classList.add("is-full");
+    document.querySelector("#side-cards").appendChild(spellCard);
+}
 function addToFavorites(url){
     spellbookKey = hashCode(document.querySelector("#spellbook-select").value);
-    console.log(spellbookKey);
     if(JSON.parse(localStorage.getItem(spellbookKey)) != null){
         let urlArray = JSON.parse(localStorage.getItem(spellbookKey));
         for(let i = 0; i < urlArray.length; i++){
@@ -202,6 +239,7 @@ function addToFavorites(url){
         let urlArray = [url];
         localStorage.setItem(spellbookKey, JSON.stringify(urlArray));
     }
+    loadFile("https://www.dnd5eapi.co" + url,showSideSpell);
 }
 
 window.onload = init;

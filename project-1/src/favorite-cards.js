@@ -53,6 +53,7 @@ img{
     <h2 id = "spell-name">title</h2>
     <button id = "remove-button">remove</button>
     <p id = "spell-level">Level Learned: </p>
+    <p id = "spell-classes">Classes Can Learn: </p>
     <p id = "spell-damage">Damage: </p>
     <p id = "spell-range">Range:</p>
     <p id = "spell-desc">Desc:</p>
@@ -95,7 +96,7 @@ class FavSpellCard extends HTMLElement{
         this.shadowRoot.querySelector("#remove-button").onclick = null;
     }
     static get observedAttributes(){
-        return ["data-name","data-desc","data-damage","data-higher-level", "data-range", "data-level", "data-url"];
+        return ["data-name","data-desc","data-damage","data-classes","data-higher-level", "data-range", "data-level", "data-url"];
     }
     attributeChangedCallback(attributeName, oldVal, newVal){
         console.log(attributeName, oldVal, newVal);
@@ -104,6 +105,7 @@ class FavSpellCard extends HTMLElement{
     render(){
         //gets the observed attributes and sets them if it isnt found
         const name = this.getAttribute('data-name') ? this.getAttribute('data-name') : "<i>name not found</i>";
+        const spellClass = this.getAttribute('data-classes') ? this.getAttribute('data-classes'):"No Classes Can Learn";
         const desc = this.getAttribute('data-desc') ? this.getAttribute('data-desc') : "desc not found";
         const damage = this.getAttribute('data-damage') ? this.getAttribute('data-damage') : "damage not found";
         const higherLevel = this.getAttribute('data-higher-level') ? this.getAttribute('data-higher-level') : "No Damage Applies";
@@ -112,6 +114,7 @@ class FavSpellCard extends HTMLElement{
 
         //sets each html element with the observed attributes
         this.shadowRoot.querySelector("h2").innerHTML = name;
+        this.shadowRoot.querySelector("#spell-classes").innerHTML = "Classes Can Learn " + spellClass;
         this.shadowRoot.querySelector("#spell-level").innerHTML = "Level learned: " + level;
         this.shadowRoot.querySelector("#spell-damage").innerHTML =  damage;
         this.shadowRoot.querySelector("#spell-range").innerHTML = "Range:" + range;

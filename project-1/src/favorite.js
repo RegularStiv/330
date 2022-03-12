@@ -12,6 +12,12 @@ const showSpell = spellObj =>{
     //sets the name and level 
     spellCard.dataset.name = spellObj.name ?? "No name Found";
     spellCard.dataset.level = spellObj.level ?? "No name Found";
+    let classes = spellObj.classes;
+    let string = "";
+    for (const iterator of classes) {
+        string += iterator.name + " ";
+    }
+    spellCard.dataset.classes = string;
     //if the object does damage
     if(spellObj.damage){
         //gets damage if based on spell slot
