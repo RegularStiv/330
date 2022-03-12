@@ -53,10 +53,14 @@ function filterSpells() {
     const filterSpell = document.querySelector("#level-select").value;
     let levelIndex = parseInt(document.querySelector("#level-select").options[document.querySelector("#level-select").selectedIndex].value);
     let classIndex = (document.querySelector("#class-select").options[document.querySelector("#class-select").selectedIndex].value);
-    let spellBookIndex = document.querySelector("#spellbook-select").options[document.querySelector("#spellbook-select").selectedIndex].value;
+    if(document.querySelector("#spellbook-select").selectedIndex != -1)
+    {
+        let spellBookIndex = document.querySelector("#spellbook-select").options[document.querySelector("#spellbook-select").selectedIndex].value;
+        localStorage.setItem(spellbookIndexKey,spellBookIndex);
+    }
     localStorage.setItem(spellKey,levelIndex);
     localStorage.setItem(classKey,classIndex);
-    localStorage.setItem(spellbookIndexKey,spellBookIndex);
+
     url = "https://www.dnd5eapi.co/api/classes/" + filterClass + "/spells";
     loadFile(url, getClassSpells);
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
@@ -122,13 +126,20 @@ function init(){
     if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
         let string = "";
         let array = JSON.parse(localStorage.getItem(spellbookArrayKey));
-        for (const iterator of array) {
+        if(array.length == 0 || array[0] == "No Spellbooks Found")
+        {
+            string = "<option>No Spellbooks Found</option>";
+        }
+        else{
+             for (const iterator of array) {
             string += `<option>${iterator}</option>`;
         }
+        }
+       
         document.querySelector("#spellbook-select").innerHTML = string;
     }
     else{
-        localStorage.setItem(spellbookArrayKey, 0);
+        localStorage.setItem(spellbookArrayKey, JSON.stringify([]));
     }
     if(localStorage.getItem(spellbookIndexKey) == null){
         localStorage.setItem(spellbookIndexKey, 0);

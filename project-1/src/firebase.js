@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const likedDogsPath = "df-liked-dogs/";
 
-const pushLikedDogToCloud = dog => {
+const pushSpellBookToCloud = dog => {
   dog.likes = increment(1);
   const db = getDatabase();
   const favRef = ref(db, `${likedDogsPath}${dog.hash}`);
@@ -26,4 +26,4 @@ const app = initializeApp(firebaseConfig);
 console.log(app);
 const db = getDatabase();
 
-export {db,likedDogsPath,ref,set,push,pushLikedDogToCloud,onValue};
+export {db,likedDogsPath,ref,set,push,pushSpellBookToCloud,onValue};

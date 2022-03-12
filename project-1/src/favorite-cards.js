@@ -6,59 +6,36 @@ const favKey = "sar7743-fav-key";
 //makes the template html and css
 const template = document.createElement("template");
 template.innerHTML = `
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
 <style>
-div{
-    height: 200px;
-    width: 170px;
-    border: 1px solid gray;
-    padding: .5rem;
-    background-color: #f4f4f4;
-    overflow: scroll;
-    font-size: .7rem;
-    position: relative;
-  } 
-  
-h2{
-    font-size: 1.1rem;
-    font-family: SfDistantGalaxy, sans-serif;
-    letter-spacing: .67px;
-    line-height: 1.2;
-    margin-top: 0;
-  } 
-  #x-button{
-      border-radius : 1px;
-      padding:2px;
-      position:absolute;
-      top:1px;
-      right:1px;
-      opacity:.2;
-  }
-  #fav-button{
-    border-radius : 1px;
-    padding:2px;
-    position:absolute;
-    top:1px;
-    left:1px;
-    opacity:.2;
+.make-five-hundred{
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 500px;
 }
-  }
-  button:hover{
-      opacity: 1;
-  }
-img{
-    width: 100px;
-  }
 </style>
-<div>
-    <h2 id = "spell-name">title</h2>
-    <button id = "remove-button">remove</button>
-    <p id = "spell-level">Level Learned: </p>
+<div >
+<div class = "card has-shadow">
+    <header class = "card-header">
+    <h2 id = "spell-name" class = "card-header-title">title</h2>
+    <button id = "fav-button">Unfavorite</button>
+    </header>
+</div>
+    <div class = "card has-shadow make-five-hundred">
+    <div class = "card-content">
+    <div class = "content has-text-centered">
     <p id = "spell-classes">Classes Can Learn: </p>
+    <p id = "spell-level">Level Learned: </p>
     <p id = "spell-damage">Damage: </p>
     <p id = "spell-range">Range:</p>
     <p id = "spell-desc">Desc:</p>
     <p id = "spell-higher-level">HL:</p>
-
+    <p id = "url"></p>
+    </div>
+    </div>
+</div>
 </div>
 `;
 

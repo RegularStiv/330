@@ -96,8 +96,8 @@ html{
 }
 .side-image{
   height:50px;
-}
-.content ul{
+} 
+.content .remove-bullets ul{
   list-style: none;
   margin-left:0px;
 }

@@ -59,6 +59,8 @@ const showSpell = spellObj =>{
     spellCard.dataset.desc = spellObj.desc ?? "No name Found";
     spellCard.dataset.range = spellObj.range ?? "No name Found";
     spellCard.dataset.url = spellObj.url ?? "NAN";
+    spellCard.classList.add("column");
+    spellCard.classList.add("is-4");
     //appends the section with the card
     document.querySelector("#img").appendChild(spellCard);
   };
