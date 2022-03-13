@@ -1,7 +1,8 @@
 
 import "./spell-card.js";
 import "./stored-cards.js";
-import { hashCode, loadFile, setDropDown, setNavActive } from "./utils.js";
+import "./nav-bar.js";
+import { hashCode, loadFile } from "./utils.js";
 let classSpells = [];
 let levelSpells = [];
 let spellArray = [];
@@ -23,9 +24,18 @@ document.querySelector("#search-button").onclick = filterSpellsButton;
 document.querySelector("#spellbook-select").onchange = filterSpells;
 document.querySelector("#new-spell-button").onclick = newSpellBook;
 function newSpellBook(){
-    
-    if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
+    if(document.querySelector("#spell-name-box").value == "No Spellbooks Found"){
+        document.querySelector("#spell-name-box").value = "Ha Ha You're So Funny Stop";
+        return;
+    }
+    else if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
         let spellbookArray = JSON.parse(localStorage.getItem(spellbookArrayKey));
+        for (const iterator of spellbookArray) {
+            if(document.querySelector("#spell-name-box").value == iterator){
+                alert("Choose a different name. Name is already in use");
+                return;
+            }
+        }
         spellbookArray.push(document.querySelector("#spell-name-box").value);
         localStorage.setItem(spellbookArrayKey,JSON.stringify(spellbookArray));
     }
@@ -66,10 +76,10 @@ function filterSpells() {
     url = "https://www.dnd5eapi.co/api/spells?level=" + filterSpell;
     loadFile(url, getLevelSpells);
 
-    document.querySelector("#side-cards").innerHTML = " ";
+    document.querySelector("#side-cards").innerHTML = `<h2 class = "has-text-black has-text-weight-semibold is-underlined column is-full">Current Spellbook: ${document.querySelector("#spellbook-select").value}</h2>`;
 
     
-    if(JSON.parse(hashCode(document.querySelector("#spellbook-select").value)) != null){
+    if(JSON.parse(hashCode(document.querySelector("#spellbook-select").value)) != null && document.querySelector("#spellbook-select").value != "No Spellbooks Found"){
         let sideArray = JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value)));
         for (const iterator of sideArray) {
             loadFile("https://www.dnd5eapi.co"+iterator,showSideSpell);
@@ -160,10 +170,8 @@ function init(){
     else{
         document.querySelector("#level-select").value = localStorage.getItem(spellKey);
     }
-    filterSpells();
-    setNavActive();
-    setDropDown();
     
+    filterSpells();
 }
 const showSpell = spellObj =>{
     const spellCard = document.createElement('spell-card');

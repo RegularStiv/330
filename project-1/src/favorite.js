@@ -76,9 +76,6 @@ function loadDifferentSpells(){
   //sets up the page onload
   function init(){
       
-      //set up functions
-      setNavActive();
-      setDropDown();
       let arrayKey = "spellbook-array-key";
       if(JSON.parse(localStorage.getItem(arrayKey)) != null){
         let string = "";

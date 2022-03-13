@@ -1,5 +1,5 @@
 //makes the card for the favorite page
-
+import "./nav-bar.js";
 //makes the key for localstorage
 const favKey = "sar7743-fav-key";
 

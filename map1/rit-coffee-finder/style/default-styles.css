@@ -11,7 +11,7 @@ body {
 }
 
 .marker {
-    background-image: url('/map1/rit-coffee-finder/images/coffee-icon.png');
+    background-image: url('./images/coffee-icon.png');
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -19,7 +19,7 @@ body {
     cursor: pointer;
 }
 .poi{
-    background-image: url('/map1/rit-coffee-finder/images/mapbox-icon.png');
+    background-image: url('/images/mapbox-icon.png');
     background-size: cover;
     width: 30px;
     height: 30px;

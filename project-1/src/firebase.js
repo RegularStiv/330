@@ -12,13 +12,13 @@ const firebaseConfig = {
     appId: "1:109482561895:web:ae329cc6c1ba6732531fc2"
 };
 
-const likedDogsPath = "df-liked-dogs/";
+const likedDogsPath = "sar7743-spellbook-saved/";
 
-const pushSpellBookToCloud = dog => {
-  dog.likes = increment(1);
+const pushSpellBookToCloud = spellB => {
+  spellB.likes = increment(1);
   const db = getDatabase();
-  const favRef = ref(db, `${likedDogsPath}${dog.hash}`);
-  set(favRef, dog); // `dog` is an object with `.title`, `.url`, `.likes` properties etc
+  const favRef = ref(db, `${likedDogsPath}${spellB.hash}`);
+  set(favRef, spellB); // `dog` is an object with `.title`, `.url`, `.likes` properties etc
 };
 
 // Initialize Firebase
