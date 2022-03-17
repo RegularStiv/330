@@ -5,19 +5,25 @@ template.innerHTML = `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <style>
-    width:100px;
+.community-card{
+    height:300px;
+    overflow-y: scroll;
+}
 </style>
-<div class = "card has-shadow">
-    <header class = "card-header">
+<div class = "card has-shadow community-card">
+<header class = "card-header">
     <h2 id = "spell-name" class = "card-header-title">title</h2>
-    <button id = "un-fav-button">unfavorite</button>
-    </header>
-    <p id = "url"></p>
+</header>
+<div class = "card-content">
+
+    <button id = "save-button" class = "button is-info">Save</button>
+    <div id ="add-things">
+    </div>
     </div>
 </div>
 `;
 
-class SideSpellCard extends HTMLElement{
+class CommunitySpellCard extends HTMLElement{
     constructor(){
         super();
         //sets up shadowroot
@@ -26,32 +32,30 @@ class SideSpellCard extends HTMLElement{
     }
     connectedCallback(){
         //sets up the button onclick
-        this.button = this.shadowRoot.querySelector("#un-fav-button");
-        this.button.onclick = () =>{
-            if (JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value))) != null){
-                let urlArray = JSON.parse(localStorage.getItem(hashCode(document.querySelector("#spellbook-select").value)));
-                let urlRemoved = this.getAttribute('data-url');
-                for (let i = 0; i < urlArray.length; i++) {
-                    if(urlRemoved == urlArray[i]){
-                        urlArray.splice(i,1);
-                    }
+        this.button2 = this.shadowRoot.querySelector("#save-button");
+        this.button2.onclick = () => {
+            if(localStorage.getItem(hashCode(`Community Saved Spellbook - ${this.dataset.name}`)) == null){
+                let spells = [];
+                spells = this.dataset.urls.split(",");
+                localStorage.setItem(hashCode(`Community Saved Spellbook - ${this.dataset.name}`),JSON.stringify(spells));
+                
+                if(JSON.parse(localStorage.getItem("spellbook-array-key")) != null){
+                    let localSpells = JSON.parse(localStorage.getItem("spellbook-array-key"));
+                    localSpells.push(`Community Saved Spellbook - ${this.dataset.name}`);
+                    localStorage.setItem("spellbook-array-key",JSON.stringify(localSpells));
                 }
-                localStorage.setItem(hashCode(document.querySelector("#spellbook-select").value),JSON.stringify(urlArray));
+                console.log("saved");
             }
-            console.log(document.querySelector("#img").childNodes[1].dataset.name);
-            for (let iterator = 1; iterator <  document.querySelector("#img").childNodes.length; iterator++) {
-                if(document.querySelector("#img").childNodes[iterator].dataset.name == this.getAttribute('data-name')){
-                    document.querySelector("#img").childNodes[iterator].shadowRoot.querySelector("#fav-button").innerHTML = "fav";
-                }
+            else{
+                alert("item has already been saved!");
             }
-            this.remove();
         }
         //renders the favorite list
         this.render();
     }
     //stores the attributes that are being used
     static get observedAttributes(){
-        return ["data-name", "data-url"];
+        return ["data-name","data-urls"];
     }
     //logs the changes in values of observed attributes
     attributeChangedCallback(attributeName, oldVal, newVal){
@@ -59,13 +63,11 @@ class SideSpellCard extends HTMLElement{
         this.render();
     }
     render(){
-        //const url = this.getAttribute('data-url') ? this.getAttribute('data-url') : "<i>name not found</i>";
         const name = this.getAttribute('data-name') ? this.getAttribute('data-name') : "<i>name not found</i>";
 
-        //this.url.innerHTML = url;
         this.shadowRoot.querySelector("h2").innerHTML = name;
     }
 
 }
 //defines the element
-customElements.define('side-spell-card', SideSpellCard);
+customElements.define('community-spell-card', CommunitySpellCard);

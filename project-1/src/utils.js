@@ -34,5 +34,5 @@ const hashCode = (str) => {
       hash = hash * 31 + char;
   }
   return hash;
-}
+};
   export {loadFile,setNavActive, setDropDown, hashCode};

@@ -33,7 +33,7 @@
 
   const scoresChanged = (snapshot) => {
       let string ="";
-    snapshot.forEach(score => {
+      snapshot.forEach(score => {
       const childKey = score.key;
       const childData = score.val();
       string += `<li>${childData.userId}-${childData.game}-${childData.score}</li>`;

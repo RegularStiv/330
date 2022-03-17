@@ -20,7 +20,7 @@ template.innerHTML = `
 <div class = "card has-shadow">
     <header class = "card-header">
     <h2 id = "spell-name" class = "card-header-title">title</h2>
-    <button id = "fav-button">Unfavorite</button>
+    <button id = "remove-button" class = "button is-info">Unfavorite</button>
     </header>
 </div>
     <div class = "card has-shadow make-five-hundred">

@@ -10,7 +10,7 @@ template.innerHTML = `
 <div class = "card has-shadow">
     <header class = "card-header">
     <h2 id = "spell-name" class = "card-header-title">title</h2>
-    <button id = "un-fav-button">unfavorite</button>
+    <button id = "un-fav-button" class = "button is-info pt-1">unfavorite</button>
     </header>
     <p id = "url"></p>
     </div>

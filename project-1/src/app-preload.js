@@ -100,7 +100,7 @@ const getClassSpells = json =>{
             loadFile("https://www.dnd5eapi.co"+iterator.url + "", showSpell);
         }
     }
-}
+};
 const getLevelSpells = json =>{
     levelSpells = json.results;
     classSpells.forEach(cSpell => {
@@ -116,7 +116,7 @@ const getLevelSpells = json =>{
         }
     }
     
-}
+};
 
 function filterSpellsButton(){
     document.querySelector("#img").innerHTML = " ";
@@ -131,7 +131,7 @@ const loopAllSpells = json => {
     for (const iterator of json.results) {
         loadFile("https://www.dnd5eapi.co"+iterator.url, showSpell);
     }
-}
+};
 function init(){
     if(JSON.parse(localStorage.getItem(spellbookArrayKey)) != null){
         let string = "";
@@ -240,7 +240,7 @@ const showSideSpell = spellObj =>{
     spellCard.classList.add("column");
     spellCard.classList.add("is-full");
     document.querySelector("#side-cards").appendChild(spellCard);
-}
+};
 function addToFavorites(url){
     spellbookKey = hashCode(document.querySelector("#spellbook-select").value);
     if(JSON.parse(localStorage.getItem(spellbookKey)) != null){

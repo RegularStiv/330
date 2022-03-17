@@ -1,8 +1,7 @@
 //import statements
-import { loadFile, setDropDown, setNavActive, hashCode } from "./utils.js";
+import { loadFile, hashCode } from "./utils.js";
 import "./favorite-cards.js";
 //key to all favorited spells
-let spellbookKey = "sar7743-fav-key";
 document.querySelector("#spellbooks").onchange = loadDifferentSpells;
 const showSpell = spellObj =>{
     //logs the json 
@@ -67,12 +66,14 @@ const showSpell = spellObj =>{
 function loadDifferentSpells(){
     document.querySelector("#img").innerHTML = "";
     getCardsFromStorage(hashCode(document.querySelector("#spellbooks").value));
+    let arrayKey = "sar7743-spellbook-index-key";
+    localStorage.setItem(arrayKey, document.querySelector("#spellbooks").value);
 }
 //calls load file on a url
   const loadURL = (urlEnd) => {
     const url = `https://www.dnd5eapi.co${urlEnd}`;
     loadFile(url,showSpell);
-  }
+  };
   //sets up the page onload
   function init(){
       
@@ -80,11 +81,27 @@ function loadDifferentSpells(){
       if(JSON.parse(localStorage.getItem(arrayKey)) != null){
         let string = "";
         let array = JSON.parse(localStorage.getItem(arrayKey));
-        for (const iterator of array) {
+        if(array.length == 0 || array[0] == "No Spellbooks Found")
+        {
+            string = "<option>No Spellbooks Found</option>";
+        }
+        else{
+             for (const iterator of array) {
             string += `<option>${iterator}</option>`;
         }
-        console.log(string);
+        }
+       
         document.querySelector("#spellbooks").innerHTML = string;
+        let index = localStorage.getItem("sar7743-spellbook-index-key");
+        for (const iterator of array) {
+            if(index == iterator){
+                document.querySelector("#spellbooks").value = index;
+            }
+        }
+
+    }
+    else{
+        localStorage.setItem(spellbookArrayKey, JSON.stringify([]));
     }
 
     getCardsFromStorage(hashCode(document.querySelector("#spellbooks").value));

@@ -15,7 +15,7 @@ template.innerHTML = `
 <div class = "card has-shadow">
     <header class = "card-header">
     <h2 id = "spell-name" class = "card-header-title">title</h2>
-    <button id = "fav-button">fav</button>
+    <button id = "fav-button" class = "button is-info">fav</button>
     </header>
 </div>
     <div class = "card has-shadow make-five-hundred">
