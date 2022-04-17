@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Audio Visualizer</title>
+	<link href="styles/styles.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+	<script src="./src/loader.js" type="module"></script>
+</head>
+<body>
+<main>
+	<nav-bar></nav-bar>
+	<div class = "columns is-centered">
+	<div class="column is-12 ">
+	
+	<div class = "columns is-centered">
+		<div class="column is-6 ">
+	<canvas width="800" height="400"></canvas>
+	<div id="controls">
+		<section>
+			<button id="playButton" data-playing="no"></button>
+			<button id="fsButton">Full Screen</button>
+		
+			<label>Track: 
+				<select id="trackSelect">
+					<option value="media/New Adventure Theme.mp3" selected>New Adventure Theme</option>
+					<option value="media/Peanuts Theme.mp3">Peanuts Theme</option>
+					<option value="media/The Picard Song.mp3">The Picard Song</option>
+				</select>
+			</label>
+		</section>
+		
+		<section>
+			Volume: <input type="range" id="volumeSlider" min="0" max="2" value="1" step="0.01">
+			<span id="volumeLabel">???</span>
+		</section>
+	</div>
+	<section>
+		<span><input type="checkbox" id="gradientCB"><label for="gradientCB">Show Gradient</label></span>
+		<span><input type="checkbox" id="barsCB"><label for="barsCB">Show Bars</label></span>
+		<span><input type="checkbox" id="circlesCB"><label for="circlesCB">Show Circles</label></span>
+		<span><input type="checkbox" id="spriteCB"><label for="spriteCB">Show Sprite</label></span>
+		<!-- we'll use this 4th checkbox soon! -->
+		<span><input type="checkbox" id="noiseCB"><label for="noiseCB">Show Noise</label></span>
+		<span><input type="checkbox" id="invertCB"><label for="invertCB">Show invert</label></span>
+		<span><input type="checkbox" id="embossCB"><label for="embossCB">Show emboss</label></span>
+	  </section>
+	</div>
+</div>
+</div>
+	</div>
+	  <img src = "./media/mag-glass.png" id = "mag-glass"alt = "mag">
+</main>
+</body>
+</html>
