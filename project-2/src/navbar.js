@@ -19,7 +19,7 @@ template.innerHTML = `
     <!-- logo/brand -->
     <div class="navbar-brand">
       <a class="navbar-item" href="home.html">
-        <img id = "dndampersand" src="images/dragon_ampersand.svg" alt="temparary dnd logo" class="py-2 px-2">
+        <img id = "dndampersand" src="./media/Audio-visual-slide.svg" alt="temparary dnd logo" class="py-2 px-2">
       </a>
       <a class="navbar-burger" id="burger">
         <span></span>

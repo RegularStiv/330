@@ -10,19 +10,20 @@ import "./navbar.js";
 import * as utils from './utils.js';
 import * as audio from './audio.js';
 import * as canvas from './canvas.js';
-
+import "./footer.js";
+import "./header.js";
 // 1 - here we are faking an enumeration
 const DEFAULTS = Object.freeze({
     sound1: "media/New Adventure Theme.mp3"
 });
 const drawParams = {
-    showGradient  : true,
-    showBars      : true,
+    showGradient  : false,
+    showBars      : false,
     showNoise     : false,
     showInvert    : false,
     emboss        : false,
-    showLargeSprite : true,
-    showSmallSprites : true
+    showLargeSprite : false,
+    showSmallSprites : false
 }
 
 function init() {
@@ -33,14 +34,25 @@ function init() {
     let canvasElement = document.querySelector("canvas"); // hookup <canvas> element
     setupUI(canvasElement);
     canvas.setupCanvas(canvasElement,audio.analyserNode);
-    document.querySelector("#gradientCB").checked = true;
-    document.querySelector("#barsCB").checked = true;
-    document.querySelector("#spriteCB").checked = true;
-    document.querySelector("#spriteSmallCB").checked = true;
-    document.querySelector("#noiseCB").checked = false;
+    utils.loadFile('./media/data.json',defaultSetter);
+    
     loop();
 }
-
+const defaultSetter = json =>{
+    drawParams.showGradient = json.showGradient;
+    drawParams.showBars = json.showBars;
+    drawParams.showNoise = json.showNoise;
+    drawParams.showInvert = json.showInvert;
+    drawParams.showSmallSprites = json.showSmallSprites;
+    drawParams.showLargeSprite = json.showLargeSprite;
+    document.querySelector("#gradientCB").checked = json.gradientCB;
+    document.querySelector("#barsCB").checked = json.barsCB;
+    document.querySelector("#spriteCB").checked = json.spriteCB;
+    document.querySelector("#spriteSmallCB").checked = json.spriteSmallCB;
+    document.querySelector("#noiseCB").checked = json.noiseCB;
+    document.querySelector("#invertCB").checked = json.invertCB;
+    document.querySelector("#embossCB").checked = json.embossCB;
+};
 function setupUI(canvasElement) {
     // A - hookup fullscreen button
     const fsButton = document.querySelector("#fsButton");
@@ -51,17 +63,16 @@ function setupUI(canvasElement) {
         utils.goFullscreen(canvasElement);
     };
     playButton.onclick = e => {
-        console.log(`audioCTX.state before  = ${audio.audioCTX.state}`);
-
         if (audio.audioCTX.state == "suspended") {
             audio.audioCTX.resume();
         }
-        console.log(`audioCTX.state after  = ${audio.audioCTX.state}`);
         if (e.target.dataset.playing == "no") {
             audio.playCurrentSound();
+            playButton.innerHTML ="Pause";
             e.target.dataset.playing = "yes";
         } else {
             audio.pauseCurrentSound();
+            playButton.innerHTML ="Play";
             e.target.dataset.playing = "no";
         }
     };
@@ -72,6 +83,46 @@ function setupUI(canvasElement) {
         volumeLabel.innerHTML = Math.round((e.target.value / 2 * 100));
     };
     volumeSlider.dispatchEvent(new Event("input"));
+
+    let sizeSlider = document.querySelector("#sizeSlider");
+    let sizeLabel = document.querySelector("#sizeLabel");
+    sizeSlider.oninput = e => {
+        sizeLabel.innerHTML = e.target.value;
+    };
+    sizeSlider.dispatchEvent(new Event("input"));
+
+    let rotationSlider = document.querySelector("#rotationSlider");
+    let rotationLabel = document.querySelector("#rotationLabel");
+    rotationSlider.oninput = e => {
+        rotationLabel.innerHTML = ((e.target.value));
+    };
+    rotationSlider.dispatchEvent(new Event("input"));
+
+    let scrollSlider = document.querySelector("#scrollSlider");
+    let scrollLabel = document.querySelector("#scrollLabel");
+    scrollSlider.oninput = e => {
+        scrollLabel.innerHTML = ((e.target.value));
+    };
+    scrollSlider.dispatchEvent(new Event("input"));
+
+    let spawnSlider = document.querySelector("#spawnSlider");
+    let spawnLabel = document.querySelector("#spawnLabel");
+    spawnSlider.oninput = e => {
+        if(e.target.value < 1.5){
+            spawnLabel.innerHTML = "slow";
+        }
+        else if(e.target.value > 2.5 && e.target.value < 4){
+            spawnLabel.innerHTML = "fast";
+        }
+        else if(e.target.value >= 4){
+            spawnLabel.innerHTML = "fastest";
+        }
+        else{
+            spawnLabel.innerHTML = "normal"; 
+        }
+    };
+    spawnSlider.dispatchEvent(new Event("input"));
+    
     let trackSelect = document.querySelector("#trackSelect");
     trackSelect.onchange = e => {
         audio.loadSoundFile(e.target.value);

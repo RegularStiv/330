@@ -1,0 +1,16 @@
+{
+    "showGradient"  : true,
+    "showBars"      : true,
+    "showNoise"     : false,
+    "showInvert"    : false,
+    "emboss"        : false,
+    "showLargeSprite" : true,
+    "showSmallSprites" : true,
+    "gradientCB"    : true,
+    "barsCB"            : true,
+    "spriteCB"      :true,
+    "spriteSmallCB" : true,
+    "noiseCB"       : false,
+    "invertCB"      : false,
+    "embossCB"      : false
+}

@@ -37,5 +37,11 @@ const makeColor = (red, green, blue, alpha = 1) => {
       }
       // .. and do nothing if the method is not supported
   };
-  
-  export {makeColor, getRandomColor, getLinearGradient, goFullscreen};
+  const loadFile = (url,callback) => {
+    const fetchPromise = async () => {
+      const response = await fetch(url);
+      callback(await response.json());
+    }
+    fetchPromise();
+  };
+  export {makeColor, getRandomColor, getLinearGradient, goFullscreen, loadFile};

@@ -5,4 +5,4 @@ window.onload = ()=>{
 	
 	// 2 - start up app
 	main.init();
-}
+} 

@@ -15,8 +15,11 @@ let deltaTime = 0;
 let lastRotate = Math.PI * 2;
 let spawnTimer = 2.5;
 let spawnedObjects = [];
+let rotationSpeed;
+let scrollSpeed;
+let spawnSpeed ;
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
-
+document.querySelector("#clearSmallSprites").onclick = () =>{spawnedObjects =[];};
 function setupCanvas(canvasElement,analyserNodeRef){
 	// create drawing context
 	ctx = canvasElement.getContext("2d");
@@ -114,8 +117,9 @@ function draw(params={},time = 0){
     }
 
     if(params.showLargeSprite){
-        let maxRadius = canvasHeight * ((document.querySelector("#volumeSlider").value / 2)) * .75;
-        //console.log(document.querySelector("#volumeSlider").value / 2);
+        rotationSpeed = document.querySelector("#rotationSlider").value;
+        spawnSpeed = document.querySelector("#spawnSlider").value;
+        let maxRadius = canvasHeight * ((document.querySelector("#sizeSlider").value / 2)) * .75;
         ctx.save();
         ctx.globalAlpha = 1;
         let percent = 0;
@@ -140,16 +144,17 @@ function draw(params={},time = 0){
         imageEl.height =  circleRadius;
         imageEl.width = circleRadius;
         ctx.translate((canvasWidth/2 ), (canvasHeight/2));
-        ctx.rotate(lastRotate * deltaTime * 5);
+        ctx.rotate(lastRotate);
         ctx.translate(-canvasWidth/2 , -canvasHeight/2 );
         ctx.drawImage(imageEl,canvasWidth/2 - imageEl.width/2,canvasHeight/2 - imageEl.height/2, imageEl.width,imageEl.height);
-        lastRotate += deltaTime;
+        lastRotate += deltaTime * rotationSpeed;
         ctx.restore();
     }
 
 
     if(params.showSmallSprites) {
-        let maxRadius = canvasHeight/5 * ((document.querySelector("#volumeSlider").value ));
+        scrollSpeed = document.querySelector("#scrollSlider").value;
+        let maxRadius = canvasHeight/5 * ((document.querySelector("#sizeSlider").value ));
         let image;
         ctx.save();
         ctx.globalAlpha = 1;
@@ -173,7 +178,7 @@ function draw(params={},time = 0){
         }
         image.height =  circleRadius;
         image.width = circleRadius;
-        if(spawnTimer > 3){
+        if(spawnTimer > (3/spawnSpeed)){
             spawnedObjects.push(new smallSprite(image,0,Math.floor(Math.random() * canvasHeight),image.width,image.height));
             spawnTimer = 0;
         }
@@ -189,7 +194,7 @@ function draw(params={},time = 0){
             spawnedObjects[i].width = circleRadius;
             spawnedObjects[i].height = circleRadius;
             ctx.drawImage(spawnedObjects[i].image, spawnedObjects[i].posX, spawnedObjects[i].posY,  spawnedObjects[i].width, spawnedObjects[i].height);
-            spawnedObjects[i].posX += 40 * deltaTime;
+            spawnedObjects[i].posX += 20 * deltaTime * (scrollSpeed);
             
         }
         ctx.restore();
